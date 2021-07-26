@@ -6,17 +6,17 @@
 <meta name=description content>
 <link rel=icon href=/gt-user-manual/images/favicon.png type=image/png>
 <title>Transaktionsimport :: Bedienungsanleitung Grafioschtrader</title>
-<link href=/gt-user-manual/css/nucleus.css?1627283022 rel=stylesheet>
-<link href=/gt-user-manual/css/fontawesome-all.min.css?1627283022 rel=stylesheet>
-<link href=/gt-user-manual/css/hybrid.css?1627283022 rel=stylesheet>
-<link href=/gt-user-manual/css/featherlight.min.css?1627283022 rel=stylesheet>
-<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1627283022 rel=stylesheet>
-<link href=/gt-user-manual/css/auto-complete.css?1627283022 rel=stylesheet>
-<link href=/gt-user-manual/css/atom-one-dark-reasonable.css?1627283022 rel=stylesheet>
-<link href=/gt-user-manual/css/theme.css?1627283022 rel=stylesheet>
-<link href=/gt-user-manual/css/hugo-theme.css?1627283022 rel=stylesheet>
-<link href=/gt-user-manual/css/theme-grafioschtrader.css?1627283022 rel=stylesheet>
-<script src=/gt-user-manual/js/jquery-3.3.1.min.js?1627283022></script>
+<link href=/gt-user-manual/css/nucleus.css?1627295154 rel=stylesheet>
+<link href=/gt-user-manual/css/fontawesome-all.min.css?1627295154 rel=stylesheet>
+<link href=/gt-user-manual/css/hybrid.css?1627295154 rel=stylesheet>
+<link href=/gt-user-manual/css/featherlight.min.css?1627295154 rel=stylesheet>
+<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1627295154 rel=stylesheet>
+<link href=/gt-user-manual/css/auto-complete.css?1627295154 rel=stylesheet>
+<link href=/gt-user-manual/css/atom-one-dark-reasonable.css?1627295154 rel=stylesheet>
+<link href=/gt-user-manual/css/theme.css?1627295154 rel=stylesheet>
+<link href=/gt-user-manual/css/hugo-theme.css?1627295154 rel=stylesheet>
+<link href=/gt-user-manual/css/theme-grafioschtrader.css?1627295154 rel=stylesheet>
+<script src=/gt-user-manual/js/jquery-3.3.1.min.js?1627295154></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/gt-user-manual/de/tenantportfolio/securityaccounts/transactionimport/>
@@ -30,10 +30,10 @@ Grafioschtrader
 <input data-search-input id=search-by type=search placeholder=Suchen...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/gt-user-manual/js/lunr.min.js?1627283022></script>
-<script type=text/javascript src=/gt-user-manual/js/auto-complete.js?1627283022></script>
+<script type=text/javascript src=/gt-user-manual/js/lunr.min.js?1627295154></script>
+<script type=text/javascript src=/gt-user-manual/js/auto-complete.js?1627295154></script>
 <script type=text/javascript>var baseurl="https://grafioschtrader.github.io/gt-user-manual//de"</script>
-<script type=text/javascript src=/gt-user-manual/js/search.js?1627283022></script>
+<script type=text/javascript src=/gt-user-manual/js/search.js?1627295154></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -408,9 +408,15 @@ Glossar
 <div id=chapter>
 <div id=body-inner>
 <h2 id=transaktionsimport>Transaktionsimport</h2>
-<p>Für den Import von Transaktionen gibt es mehrere Möglichkeiten. Allerdings muss das Depot mit der entsprechenden <strong>Handelsplattform Plan</strong> verknüpft sein. Mit dieser Verknüpfung wird der Import mit der entsprechende <strong>Import Vorlagengruppe</strong> importiert. Falls Ihre Handelsplattform einen Export aller Transaktionen anbietet, sollten Sie möglicherweise einen CSV-Import in Erwägung ziehen. Leider fehlen solchen Exports oftmals die Gebühren oder Steuerdaten und eignen sich nicht für den Import von Wertpapier Transaktionen.</p>
+<p>Viele Benutzer handeln schon einige Jahre an der Börse und möchten Ihre Transaktionen möglichst importieren und nicht manuell erfassen. Daher gibt es in GT einen <strong>Transaktionsimport</strong>, für diesen Import gibt es mehrere Möglichkeiten, wobei sich das einte Verfahren besser für einen <strong>initialen</strong> und das andere eher für den <strong>laufenden Import</strong> eignet.</p>
+<h3 id=initialen-import>Initialen Import</h3>
+<p>Für den initialen Import wird der <strong>CSV-Import</strong> empfohlen, falls die Handelsplattform möglichst ein vollständiges CSV-Dokument anbietet. Leider fehlen solchen Exports oftmals die Gebühren oder Steuerdaten und eignen sich nur eingeschränkt für den Import von Wertpapier Transaktionen. Die andere Alternative ist <strong>GT-Transform-Import</strong>, dabei können alle PDF-Dokumente einer Verzeichnisstruktur eingelesen, anonymisiert und das Resultat als Text-Datei exportiert werden. Diese Text-Datei wird danach in GT hochgeladen.</p>
+<h3 id=laufender-import>Laufender Import</h3>
+<p>Mit dem laufenden Import ist der Import nach dem initialen Import gemeint, dabei erfolgt der Import einer Transaktion relativ zügig nach deren Ausführung auf der Handelsplattform. Die meisten Handelsplattformen stellen kurze Zeit nach der Ausführung einer Transaktion ein entsprechendes PDF-Dokument zur Verfügung. Dieses PDF-Dokument kann möglicherweise mit Drag & Drop in GT importiert werden.</p>
+<h3 id=voraussetzung-für-den-import>Voraussetzung für den Import</h3>
+<p>Der Import wird erst angeboten, falls das <strong>Depot</strong> mit dem entsprechenden <strong>Handelsplattform Plan</strong> verknüpft ist. Mit dieser Verknüpfung wird der Import mit den entsprechenden <strong>Importvorlagen</strong> aus der <strong>Import Vorlagengruppe</strong> importiert.</p>
 <h3 id=csv-import>CSV-Import</h3>
-<p>Vor dem Hochladen des CSV-Dokuments muss bei mehreren Importvorlagen die entsprechende ausgewählt werden. Bei der Auswahl wird die &ldquo;<strong>templateId</strong>&rdquo; mit dem Zweck der Vorlage angezeigt. Für die Ermittlung der korrekten Importvorlage, bittet sich an, zuerst die Kopfzeile des CSV-Dokuments mit der Importvorlage zu vergleichen, siehe dazu auch <a href=../../../basedata/imptranstemplate/createimptranstemplate/>Import Transaktion Vorlage</a></p>
+<p>Vor dem Hochladen des CSV-Dokuments muss bei mehreren Importvorlagen die entsprechende ausgewählt werden. Bei der Auswahl wird die &ldquo;<strong>templateId</strong>&rdquo; mit dem Zweck der Vorlage angezeigt. Für die Ermittlung der korrekten Importvorlage, bittet sich an, zuerst die Kopfzeile des CSV-Dokuments mit der Importvorlage zu vergleichen, siehe dazu auch <a href=../../../basedata/imptranstemplate/createimptranstemplate/>Import Transaktion Vorlage</a>.</p>
 <h4 id=erste-zeile-des-csv-dokuments>Erste Zeile des CSV-Dokuments</h4>
 <p>Die erste Zeile der CSV-Datei dient der Zuordnung der <strong>Spalten</strong> zu den entsprechenden <strong>Felder</strong>. Diese Zuordnung basiert auf der Felder-Definition in der Importvorlage. In der Regel muss der Benutzer keine Anpassungen in dieser Zeile vornehmen.</p>
 <h3 id=pdf-import>PDF-Import</h3>
@@ -421,7 +427,7 @@ Glossar
 </div>
 </p>
 <h4 id=gt-pdf-transform>GT-PDF-Transform</h4>
-<p>GT-PDF-Transform ist eine Desktop <strong>JavaFX Applikation</strong>, die es ermöglicht, eine Vielzahl von PDF Dateien zu anonymisieren. Sie kann beispielsweise rekursiv alle PDF-Dateien eines Dateiverzeichnis einlesen. Danach können in einer Massenverarbeitung die nicht für den Import relevanten Textzeilen entfernt werden. Falls Ihre Wertpapier Transaktionen mehrheitlich als PDF-Dateien vorliegen, können Sie diese mit GT-PDF-Transform verarbeiten und danach in GT importieren.</p>
+<p>GT-PDF-Transform ist eine Desktop <strong>JavaFX Applikation</strong>, die es ermöglicht, eine Vielzahl von PDF Dateien zu anonymisieren. Sie kann beispielsweise rekursiv alle PDF-Dateien einer Verzeichnisstruktur einlesen. Danach können in einer Massenverarbeitung die nicht für den Import relevanten Textzeilen entfernt werden. Falls Ihre Wertpapier Transaktionen mehrheitlich als PDF-Dateien vorliegen, können Sie diese mit GT-PDF-Transform verarbeiten und danach in GT importieren.</p>
 <h3 id=ansicht-transaktionsimport>Ansicht Transaktionsimport</h3>
 <p><strong>Transaktionsimport</strong> ist eine <strong>Zwischenstufe</strong> nach dem Import und bevor der Import zur Transaktion wird. Nur der erfolgreiche Import mit <strong>Drag & Drop</strong> benötigt die <strong>Ansicht Transaktionsimport</strong> nicht. Alle anderen Arten des Importes werden über diese <strong>Ansicht</strong> erledigt. Diese Ansicht gibt Aufschluss über den <strong>Status</strong> einer potenziellen Transaktion. Zudem können gewisse Korrekturen an <strong>Importposition</strong> angebracht werden. Unterschiedliche Imports derselben potenziellen Transaktionen können diese qualitativ verbessern. Letztendlich wird in dieser Ansicht die <strong>Importposition</strong> zu einer <strong>realen Transaktion</strong> verarbeitet.</p>
 <h4 id=erstellen-und-bearbeiten-importgruppe>Erstellen und bearbeiten Importgruppe</h4>
@@ -471,19 +477,19 @@ Glossar
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/gt-user-manual/js/clipboard.min.js?1627283022></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1627283022></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1627283022></script>
-<script src=/gt-user-manual/js/jquery.sticky.js?1627283022></script>
-<script src=/gt-user-manual/js/featherlight.min.js?1627283022></script>
-<script src=/gt-user-manual/js/html5shiv-printshiv.min.js?1627283022></script>
-<script src=/gt-user-manual/js/highlight.pack.js?1627283022></script>
+<script src=/gt-user-manual/js/clipboard.min.js?1627295154></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1627295154></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1627295154></script>
+<script src=/gt-user-manual/js/jquery.sticky.js?1627295154></script>
+<script src=/gt-user-manual/js/featherlight.min.js?1627295154></script>
+<script src=/gt-user-manual/js/html5shiv-printshiv.min.js?1627295154></script>
+<script src=/gt-user-manual/js/highlight.pack.js?1627295154></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/gt-user-manual/js/modernizr.custom.71422.js?1627283022></script>
-<script src=/gt-user-manual/js/learn.js?1627283022></script>
-<script src=/gt-user-manual/js/hugo-learn.js?1627283022></script>
-<link href=/gt-user-manual/mermaid/mermaid.css?1627283022 type=text/css rel=stylesheet>
-<script src=/gt-user-manual/mermaid/mermaid.js?1627283022></script>
+<script src=/gt-user-manual/js/modernizr.custom.71422.js?1627295154></script>
+<script src=/gt-user-manual/js/learn.js?1627295154></script>
+<script src=/gt-user-manual/js/hugo-learn.js?1627295154></script>
+<link href=/gt-user-manual/mermaid/mermaid.css?1627295154 type=text/css rel=stylesheet>
+<script src=/gt-user-manual/mermaid/mermaid.js?1627295154></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>
