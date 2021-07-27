@@ -6,17 +6,17 @@
 <meta name=description content>
 <link rel=icon href=/gt-user-manual/images/favicon.png type=image/png>
 <title>Transaktionsimport :: Bedienungsanleitung Grafioschtrader</title>
-<link href=/gt-user-manual/css/nucleus.css?1627323195 rel=stylesheet>
-<link href=/gt-user-manual/css/fontawesome-all.min.css?1627323195 rel=stylesheet>
-<link href=/gt-user-manual/css/hybrid.css?1627323195 rel=stylesheet>
-<link href=/gt-user-manual/css/featherlight.min.css?1627323195 rel=stylesheet>
-<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1627323195 rel=stylesheet>
-<link href=/gt-user-manual/css/auto-complete.css?1627323195 rel=stylesheet>
-<link href=/gt-user-manual/css/atom-one-dark-reasonable.css?1627323195 rel=stylesheet>
-<link href=/gt-user-manual/css/theme.css?1627323195 rel=stylesheet>
-<link href=/gt-user-manual/css/hugo-theme.css?1627323195 rel=stylesheet>
-<link href=/gt-user-manual/css/theme-grafioschtrader.css?1627323195 rel=stylesheet>
-<script src=/gt-user-manual/js/jquery-3.3.1.min.js?1627323195></script>
+<link href=/gt-user-manual/css/nucleus.css?1627401612 rel=stylesheet>
+<link href=/gt-user-manual/css/fontawesome-all.min.css?1627401612 rel=stylesheet>
+<link href=/gt-user-manual/css/hybrid.css?1627401612 rel=stylesheet>
+<link href=/gt-user-manual/css/featherlight.min.css?1627401612 rel=stylesheet>
+<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1627401612 rel=stylesheet>
+<link href=/gt-user-manual/css/auto-complete.css?1627401612 rel=stylesheet>
+<link href=/gt-user-manual/css/atom-one-dark-reasonable.css?1627401612 rel=stylesheet>
+<link href=/gt-user-manual/css/theme.css?1627401612 rel=stylesheet>
+<link href=/gt-user-manual/css/hugo-theme.css?1627401612 rel=stylesheet>
+<link href=/gt-user-manual/css/theme-grafioschtrader.css?1627401612 rel=stylesheet>
+<script src=/gt-user-manual/js/jquery-3.3.1.min.js?1627401612></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/gt-user-manual/de/tenantportfolio/securityaccounts/transactionimport/>
@@ -30,10 +30,10 @@ Grafioschtrader
 <input data-search-input id=search-by type=search placeholder=Suchen...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/gt-user-manual/js/lunr.min.js?1627323195></script>
-<script type=text/javascript src=/gt-user-manual/js/auto-complete.js?1627323195></script>
+<script type=text/javascript src=/gt-user-manual/js/lunr.min.js?1627401612></script>
+<script type=text/javascript src=/gt-user-manual/js/auto-complete.js?1627401612></script>
 <script type=text/javascript>var baseurl="https://grafioschtrader.github.io/gt-user-manual//de"</script>
-<script type=text/javascript src=/gt-user-manual/js/search.js?1627323195></script>
+<script type=text/javascript src=/gt-user-manual/js/search.js?1627401612></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -440,7 +440,7 @@ Glossar
 <li><strong>Löschen Importgruppe</strong>: Falls es keine <strong>Importpositionen</strong> innerhalb einer <strong>Importgruppe</strong> mehr gibt, kann diese gelöscht werden.</li>
 </ul>
 <h4 id=voraussetzung-für-transaktionsfähigkeit>Voraussetzung für Transaktionsfähigkeit</h4>
-<p>Das System führt Zuordnungen und Berechnungen aufgrund der importierten Werte durch. Eine <strong>potenzielle Transaktion</strong> wird <strong>Transaktionsfähig</strong>, falls folgende Schritte erfolgreicht durchgeführt werden können.</p>
+<p>Das System führt Zuordnungen und Berechnungen aufgrund der importierten Werte durch. Eine <strong>Importposition</strong> wird <strong>Transaktionsfähig</strong>, falls folgende Schritte erfolgreicht durchgeführt werden können.</p>
 <ul>
 <li><strong>Wertpapier Zuordnung</strong>: Aufgrund der <strong>ISIN</strong> oder des <strong>Symbol/Ticker</strong> geschieht die Zuordnung eines bestehenden Wertpapieres.</li>
 <li><strong>Bankkonto Zuordnung</strong>: Mit der Angabe des Wertes von <strong>Feld &ldquo;cac&rdquo;</strong>, siehe <a href=../../../basedata/imptranstemplate/createimptranstemplate/>Importvorlage</a>, geschieht die Zuordnung eines existierenden Bankkontos dieses Portfolios.</li>
@@ -458,16 +458,17 @@ Glossar
 <h4 id=funktionen-auf-selektierte-importpositionen>Funktionen auf selektierte Importposition/en</h4>
 <p>Diese Ansicht unterstützt die Mehrfachauswahl, daher muss jede selektierte Importposition die verlangten Voraussetzung für zu wählende Funktion unterstützen, andernfalls wird der Menüpunkt nicht aktiv geschaltet.</p>
 <h5 id=korrekturfunktionen>Korrekturfunktionen</h5>
-<p>Die folgenden Funktionen dienen der Korrektur an <strong>potenzielle Transaktion</strong>, damit diese <strong>Transaktionsfähig</strong> werden:</p>
+<p>Die folgenden Funktionen dienen der Korrektur an <strong>Importposition</strong>, damit diese <strong>Transaktionsfähig</strong> werden:</p>
 <ul>
-<li><strong>Korrigiere Multiplikation auf Gesamtsumme</strong>: Diese Funktionn kann möglicherweise das Problem <strong>Transaktionsfähigkeit</strong> der potenzielle Transaktion bezüglich der gescheiterten <strong>Gesamtsumme Überprüfung</strong> beheben.
+<li><strong>Differenz Gesamtsumme akzeptieren</strong>: Dabei wird der Wert der &ldquo;<strong>Errechnete Gesamtsumme</strong>&rdquo; akzeptiert und die entsprechende Importposition wird <strong>Transaktionsfähig</strong>. Diese Funktion sollten nur angewendet werden, falls die Abweichung der berechneten zur realen Gesamtsumme sehr gering ist.</li>
+<li><strong>Korrigiere Multiplikation auf Gesamtsumme</strong>: Diese Funktion kann möglicherweise das Problem <strong>Transaktionsfähigkeit</strong> der Importposition bezüglich der gescheiterten <strong>Gesamtsumme Überprüfung</strong> beheben.
 <ul>
 <li>Manchmal ist der Wechselkurs im importierten Dokument nicht exakt angegeben, diese Funktion korrigiert den Wechselkurs entsprechend.</li>
 <li>In GT ist der <strong>Zins in Prozenten</strong> massgebend für die Berechnung der <strong>Gesamtsumme</strong> des Zinses, dieser wird möglicherweise als Jahreszins augewiesen, obwohl der massgebende Zins eine kürzere Zeitdauer abdeckt. Daher kann diese Funktion den <strong>Zins in Prozenten</strong> entsprechend der <strong>Gesamtsumme</strong> anpassen.</li>
 </ul>
 </li>
 <li><strong>Instrument zuweisen</strong>: Eier Wertpapiertransaktion können Sie eine Instrument zuweisen. Dazu öffnet sich der <a href=../../../watchlistinstrument/instrument/searchdialog>Suchdialog für Instrumente</a>.</li>
-<li><strong>Bankkonto zuweisen</strong>: Hiermit können sie der potenziellen Transaktion ein Bankkonto zuweisen.</li>
+<li><strong>Bankkonto zuweisen</strong>: Hiermit können sie der Importposition ein Bankkonto zuweisen.</li>
 </ul>
 <h5 id=transaktionsfunktionen>Transaktionsfunktionen</h5>
 <p>Die folgenden Funktionen beziehen sich auf das Erstellen einer Transaktion.</p>
@@ -495,19 +496,19 @@ Glossar
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/gt-user-manual/js/clipboard.min.js?1627323195></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1627323195></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1627323195></script>
-<script src=/gt-user-manual/js/jquery.sticky.js?1627323195></script>
-<script src=/gt-user-manual/js/featherlight.min.js?1627323195></script>
-<script src=/gt-user-manual/js/html5shiv-printshiv.min.js?1627323195></script>
-<script src=/gt-user-manual/js/highlight.pack.js?1627323195></script>
+<script src=/gt-user-manual/js/clipboard.min.js?1627401612></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1627401612></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1627401612></script>
+<script src=/gt-user-manual/js/jquery.sticky.js?1627401612></script>
+<script src=/gt-user-manual/js/featherlight.min.js?1627401612></script>
+<script src=/gt-user-manual/js/html5shiv-printshiv.min.js?1627401612></script>
+<script src=/gt-user-manual/js/highlight.pack.js?1627401612></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/gt-user-manual/js/modernizr.custom.71422.js?1627323195></script>
-<script src=/gt-user-manual/js/learn.js?1627323195></script>
-<script src=/gt-user-manual/js/hugo-learn.js?1627323195></script>
-<link href=/gt-user-manual/mermaid/mermaid.css?1627323195 type=text/css rel=stylesheet>
-<script src=/gt-user-manual/mermaid/mermaid.js?1627323195></script>
+<script src=/gt-user-manual/js/modernizr.custom.71422.js?1627401612></script>
+<script src=/gt-user-manual/js/learn.js?1627401612></script>
+<script src=/gt-user-manual/js/hugo-learn.js?1627401612></script>
+<link href=/gt-user-manual/mermaid/mermaid.css?1627401612 type=text/css rel=stylesheet>
+<script src=/gt-user-manual/mermaid/mermaid.js?1627401612></script>
 <script>mermaid.initialize({startOnLoad:!0})</script>
 </body>
 </html>
