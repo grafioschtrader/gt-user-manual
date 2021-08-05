@@ -5,7 +5,7 @@
 <meta name=generator content="Hugo 0.87.0">
 <meta name=description content>
 <link rel=icon href=/gt-user-manual/images/favicon.png type=image/png>
-<title>Cliend and Portfolios :: User manual Grafioschtrader</title>
+<title>GT-PDF-Transform :: User manual Grafioschtrader</title>
 <link href=/gt-user-manual/css/nucleus.css?1628186549 rel=stylesheet>
 <link href=/gt-user-manual/css/fontawesome-all.min.css?1628186549 rel=stylesheet>
 <link href=/gt-user-manual/css/hybrid.css?1628186549 rel=stylesheet>
@@ -20,7 +20,7 @@
 <script src=/gt-user-manual/js/jquery.min.js?1628186549></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
-<body data-url=/gt-user-manual/en/tenantportfolio/>
+<body data-url=/gt-user-manual/en/tenantportfolio/securityaccounts/transactionimport/gtpdftransform/>
 <nav id=sidebar>
 <div id=header-wrapper>
 <div id=header>
@@ -85,8 +85,7 @@ Different installations
 </ul>
 </li>
 <li data-nav-id=/gt-user-manual/en/tenantportfolio/ title="Cliend and Portfolios" class="dd-item
-parent
-active">
+parent">
 <a href=/gt-user-manual/en/tenantportfolio/>
 Cliend and Portfolios
 </a>
@@ -101,17 +100,21 @@ Client
 Portfolio
 </a>
 </li>
-<li data-nav-id=/gt-user-manual/en/tenantportfolio/securityaccounts/ title="Security accounts" class=dd-item>
+<li data-nav-id=/gt-user-manual/en/tenantportfolio/securityaccounts/ title="Security accounts" class="dd-item
+parent">
 <a href=/gt-user-manual/en/tenantportfolio/securityaccounts/>
 Security accounts
 </a>
 <ul>
-<li data-nav-id=/gt-user-manual/en/tenantportfolio/securityaccounts/transactionimport/ title="Transaction import" class=dd-item>
+<li data-nav-id=/gt-user-manual/en/tenantportfolio/securityaccounts/transactionimport/ title="Transaction import" class="dd-item
+parent">
 <a href=/gt-user-manual/en/tenantportfolio/securityaccounts/transactionimport/>
 Transaction import
 </a>
 <ul>
-<li data-nav-id=/gt-user-manual/en/tenantportfolio/securityaccounts/transactionimport/gtpdftransform/ title=GT-PDF-Transform class=dd-item>
+<li data-nav-id=/gt-user-manual/en/tenantportfolio/securityaccounts/transactionimport/gtpdftransform/ title=GT-PDF-Transform class="dd-item
+parent
+active">
 <a href=/gt-user-manual/en/tenantportfolio/securityaccounts/transactionimport/gtpdftransform/>
 GT-PDF-Transform
 </a>
@@ -383,7 +386,7 @@ Glossary
 <a class=padding>
 <i class="fas fa-language fa-fw"></i>
 <div class=select-style>
-<select id=select-language onchange="location=this.value"><option id=de value=https://grafioschtrader.github.io/gt-user-manual/de/tenantportfolio/>Deutsch</option><option id=en value=https://grafioschtrader.github.io/gt-user-manual/en/tenantportfolio/ selected>English</option></select><svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255" height="255" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255"><g><g id="arrow-drop-down"><polygon points="0,63.75 127.5,191.25 255,63.75"/></g></g></svg>
+<select id=select-language onchange="location=this.value"><option id=de value=https://grafioschtrader.github.io/gt-user-manual/de/tenantportfolio/securityaccounts/transactionimport/gtpdftransform/>Deutsch</option><option id=en value=https://grafioschtrader.github.io/gt-user-manual/en/tenantportfolio/securityaccounts/transactionimport/gtpdftransform/ selected>English</option></select><svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255" height="255" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255"><g><g id="arrow-drop-down"><polygon points="0,63.75 127.5,191.25 255,63.75"/></g></g></svg>
 </div>
 </a>
 </li>
@@ -406,7 +409,7 @@ Glossary
 </a>
 </span>
 <span class=links>
-<a href=/gt-user-manual/en/>Grafioschtrader</a> > Cliend and Portfolios
+<a href=/gt-user-manual/en/>Grafioschtrader</a> > <a href=/gt-user-manual/en/tenantportfolio/>Cliend and Portfolios</a> > <a href=/gt-user-manual/en/tenantportfolio/securityaccounts/>Security accounts</a> > <a href=/gt-user-manual/en/tenantportfolio/securityaccounts/transactionimport/>Transaction import</a> > GT-PDF-Transform
 </span>
 </div>
 </div>
@@ -415,18 +418,7 @@ Glossary
 </div>
 <div id=chapter>
 <div id=body-inner>
-<h2 id=client-and-portfolios>Client and Portfolios</h2>
-<p>GT defines a <strong>Client</strong> from the aggregation of all <strong>portfolios</strong> and <strong>watchlists</strong>. Additionally it contains the information regarding the evaluation over all portfolios. A client can have one or more portfolios, the number of possible portfolios is limited. The following diagram shows the relationships of these <strong>private data</strong>. For example we can see that an account is assigned to a portfolio.</p>
-<div class=mermaid align=center>
-erDiagram
-Client ||--|{ Portfolio : has
-Portfolio ||--|{ Account : has
-Portfolio ||--|{ Security-Account : has
-Client ||--|{ Watchlist : has
-Watchlist }o--|{ Instruments : has
-Account ||--|{ Transaction : has
-Transaction |o--o| Transaction : references
-</div>
+<h2 id=gt-pdf-transform>GT-PDF-Transform</h2>
 <footer class=footline>
 </footer>
 </div>

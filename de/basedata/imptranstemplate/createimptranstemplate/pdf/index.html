@@ -6,18 +6,18 @@
 <meta name=description content>
 <link rel=icon href=/gt-user-manual/images/favicon.png type=image/png>
 <title>Importvorlage für PDF :: Bedienungsanleitung Grafioschtrader</title>
-<link href=/gt-user-manual/css/nucleus.css?1628106388 rel=stylesheet>
-<link href=/gt-user-manual/css/fontawesome-all.min.css?1628106388 rel=stylesheet>
-<link href=/gt-user-manual/css/hybrid.css?1628106388 rel=stylesheet>
-<link href=/gt-user-manual/css/featherlight.min.css?1628106388 rel=stylesheet>
-<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1628106388 rel=stylesheet>
-<link href=/gt-user-manual/css/auto-complete.css?1628106388 rel=stylesheet>
-<link href=/gt-user-manual/css/atom-one-dark-reasonable.css?1628106388 rel=stylesheet>
-<link href=/gt-user-manual/css/theme.css?1628106388 rel=stylesheet>
-<link href=/gt-user-manual/css/tabs.css?1628106388 rel=stylesheet>
-<link href=/gt-user-manual/css/hugo-theme.css?1628106388 rel=stylesheet>
-<link href=/gt-user-manual/css/theme-grafioschtrader.css?1628106388 rel=stylesheet>
-<script src=/gt-user-manual/js/jquery.min.js?1628106388></script>
+<link href=/gt-user-manual/css/nucleus.css?1628186548 rel=stylesheet>
+<link href=/gt-user-manual/css/fontawesome-all.min.css?1628186548 rel=stylesheet>
+<link href=/gt-user-manual/css/hybrid.css?1628186548 rel=stylesheet>
+<link href=/gt-user-manual/css/featherlight.min.css?1628186548 rel=stylesheet>
+<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1628186548 rel=stylesheet>
+<link href=/gt-user-manual/css/auto-complete.css?1628186548 rel=stylesheet>
+<link href=/gt-user-manual/css/atom-one-dark-reasonable.css?1628186548 rel=stylesheet>
+<link href=/gt-user-manual/css/theme.css?1628186548 rel=stylesheet>
+<link href=/gt-user-manual/css/tabs.css?1628186548 rel=stylesheet>
+<link href=/gt-user-manual/css/hugo-theme.css?1628186548 rel=stylesheet>
+<link href=/gt-user-manual/css/theme-grafioschtrader.css?1628186548 rel=stylesheet>
+<script src=/gt-user-manual/js/jquery.min.js?1628186548></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/gt-user-manual/de/basedata/imptranstemplate/createimptranstemplate/pdf/>
@@ -33,10 +33,10 @@ Grafioschtrader
 <input data-search-input id=search-by type=search placeholder=Suchen...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/gt-user-manual/js/lunr.min.js?1628106388></script>
-<script type=text/javascript src=/gt-user-manual/js/auto-complete.js?1628106388></script>
+<script type=text/javascript src=/gt-user-manual/js/lunr.min.js?1628186548></script>
+<script type=text/javascript src=/gt-user-manual/js/auto-complete.js?1628186548></script>
 <script type=text/javascript>var baseurl="https://grafioschtrader.github.io/gt-user-manual//de"</script>
-<script type=text/javascript src=/gt-user-manual/js/search.js?1628106388></script>
+<script type=text/javascript src=/gt-user-manual/js/search.js?1628186548></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -108,6 +108,13 @@ Depots
 <a href=/gt-user-manual/de/tenantportfolio/securityaccounts/transactionimport/>
 Transaktionsimport
 </a>
+<ul>
+<li data-nav-id=/gt-user-manual/de/tenantportfolio/securityaccounts/transactionimport/gtpdftransform/ title=GT-PDF-Transform class=dd-item>
+<a href=/gt-user-manual/de/tenantportfolio/securityaccounts/transactionimport/gtpdftransform/>
+GT-PDF-Transform
+</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -436,6 +443,8 @@ Glossar
 </ul>
 </li>
 </ul>
+<h4 id=auslesbarer-bereich>Auslesbarer Bereich</h4>
+<p>Der <strong>auslesbare Bereich</strong> definiert den zusammenhängenden Bereich von Zeilen des Dokuments wo die <strong>relevanten Werte</strong> liegen und welche durch <strong>Ankerpunkte referenziert</strong> werden. Normalerweise sind die paar ersten und letzten Zeile nicht im auslesbaren Bereich enthalten, daher dürfen diese sowohl in der Importvorlage wie auch im transformierten PDF-Dokument fehlen.</p>
 <h4 id=ankerpunkte-referenziert-menge-von-statischen-wörter-am-zeilenanfang>Ankerpunkte referenziert Menge von statischen Wörter am Zeilenanfang</h4>
 <p>Manchmal möchte man mit einem Ankerpunkt zwei Varianten eines statischen Wortes referenzieren. Diese Flexibilität ist für den Zeilenanfang <strong>derselben</strong>, <strong>vorhergehenden</strong> und <strong>nachfolgenden Zeile</strong> gegeben. Damit funktioniert dieses Konstrukt für <strong>PL</strong>, <strong>SL</strong> und <strong>NL</strong>. Die möglichen Wörter der Zeilenanfänge werden mit Klammer umschlossen und mit &ldquo;|&rdquo; <strong>[w1|w2|w&mldr;]</strong> getrennt. Im folgenden Beispiel kann der Zeilenanfang von Feld <strong>tt1</strong> mit &ldquo;Quellensteuer&rdquo; oder &ldquo;Verrechnungssteuer&rdquo; beginnen:
 <div class=highlight><pre tabindex=0 style=color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown>[Quellensteuer|Verrechnungssteuer] 35% (CH) CHF {tt1|SL|N|O}</code></pre></div></p>
@@ -515,17 +524,17 @@ overRuleThousandSeparators= &#39;’</code></pre></td></tr></table>
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/gt-user-manual/js/clipboard.min.js?1628106388></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1628106388></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1628106388></script>
-<script src=/gt-user-manual/js/jquery.sticky.js?1628106388></script>
-<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1628106388></script>
-<script src=/gt-user-manual/js/featherlight.min.js?1628106388></script>
-<script src=/gt-user-manual/js/highlight.pack.js?1628106388></script>
+<script src=/gt-user-manual/js/clipboard.min.js?1628186548></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1628186548></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1628186548></script>
+<script src=/gt-user-manual/js/jquery.sticky.js?1628186548></script>
+<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1628186548></script>
+<script src=/gt-user-manual/js/featherlight.min.js?1628186548></script>
+<script src=/gt-user-manual/js/highlight.pack.js?1628186548></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1628106388></script>
-<script src=/gt-user-manual/js/mermaid.min.js?1628106388></script>
+<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1628186548></script>
+<script src=/gt-user-manual/js/mermaid.min.js?1628186548></script>
 <script>mermaid&&mermaid.mermaidAPI.initialize(Object.assign({securityLevel:"antiscript"},JSON.parse('{ "startOnLoad": true }'),{startOnLoad:!1}))</script>
-<script src=/gt-user-manual/js/relearn.js?1628106388></script>
+<script src=/gt-user-manual/js/relearn.js?1628186548></script>
 </body>
 </html>
