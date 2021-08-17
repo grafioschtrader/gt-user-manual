@@ -6,18 +6,18 @@
 <meta name=description content>
 <link rel=icon href=/gt-user-manual/images/favicon.png type=image/png>
 <title>Tagesendkurse als Linengrafik :: Bedienungsanleitung Grafioschtrader</title>
-<link href=/gt-user-manual/css/nucleus.css?1629033494 rel=stylesheet>
-<link href=/gt-user-manual/css/fontawesome-all.min.css?1629033494 rel=stylesheet>
-<link href=/gt-user-manual/css/hybrid.css?1629033494 rel=stylesheet>
-<link href=/gt-user-manual/css/featherlight.min.css?1629033494 rel=stylesheet>
-<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1629033494 rel=stylesheet>
-<link href=/gt-user-manual/css/auto-complete.css?1629033494 rel=stylesheet>
-<link href=/gt-user-manual/css/atom-one-dark-reasonable.css?1629033494 rel=stylesheet>
-<link href=/gt-user-manual/css/theme.css?1629033494 rel=stylesheet>
-<link href=/gt-user-manual/css/tabs.css?1629033494 rel=stylesheet>
-<link href=/gt-user-manual/css/hugo-theme.css?1629033494 rel=stylesheet>
-<link href=/gt-user-manual/css/theme-grafioschtrader.css?1629033494 rel=stylesheet>
-<script src=/gt-user-manual/js/jquery.min.js?1629033494></script>
+<link href=/gt-user-manual/css/nucleus.css?1629223906 rel=stylesheet>
+<link href=/gt-user-manual/css/fontawesome-all.min.css?1629223906 rel=stylesheet>
+<link href=/gt-user-manual/css/hybrid.css?1629223906 rel=stylesheet>
+<link href=/gt-user-manual/css/featherlight.min.css?1629223906 rel=stylesheet>
+<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1629223906 rel=stylesheet>
+<link href=/gt-user-manual/css/auto-complete.css?1629223906 rel=stylesheet>
+<link href=/gt-user-manual/css/atom-one-dark-reasonable.css?1629223906 rel=stylesheet>
+<link href=/gt-user-manual/css/theme.css?1629223906 rel=stylesheet>
+<link href=/gt-user-manual/css/tabs.css?1629223906 rel=stylesheet>
+<link href=/gt-user-manual/css/hugo-theme.css?1629223906 rel=stylesheet>
+<link href=/gt-user-manual/css/theme-grafioschtrader.css?1629223906 rel=stylesheet>
+<script src=/gt-user-manual/js/jquery.min.js?1629223906></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/gt-user-manual/de/watchlistinstrument/eodchart/>
@@ -34,10 +34,10 @@ Grafioschtrader
 <input data-search-input id=search-by type=search placeholder=Suchen...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script type=text/javascript src=/gt-user-manual/js/lunr.min.js?1629033494></script>
-<script type=text/javascript src=/gt-user-manual/js/auto-complete.js?1629033494></script>
+<script type=text/javascript src=/gt-user-manual/js/lunr.min.js?1629223906></script>
+<script type=text/javascript src=/gt-user-manual/js/auto-complete.js?1629223906></script>
 <script type=text/javascript>var baseurl="https://grafioschtrader.github.io/gt-user-manual//de"</script>
-<script type=text/javascript src=/gt-user-manual/js/search.js?1629033494></script>
+<script type=text/javascript src=/gt-user-manual/js/search.js?1629223906></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -418,15 +418,47 @@ Glossar
 <div id=chapter>
 <div id=body-inner>
 <h2 id=tagesendkurse-als-linengrafik>Tagesendkurse als Linengrafik</h2>
-<p>&mldr;</p>
+<p>In GT können die <strong>Tagesendkurse als Liniengrafik</strong> eines <strong>Instrumentes</strong> im <strong>Zusatzbereich</strong> als <strong>Diagramm</strong> dargestellt werden. Daraus lässt sich die Performance der Kurse ab einem wählbaren Datum eines Instrumentes ablesen. Wobei sich die angebotene Funktionalität bezüglich dem <strong>Wertpapier</strong> einschliessich <strong>abgeleitetes Wertpapier</strong> und dem <strong>Währungspaar</strong> leicht unterscheiden.</p>
+<div class="notices info">
+<div class=label>Info</div>
+<p>Die Liniengrafik basiert auf den historischen Kursdaten plus dem letzten Innertag Kurs falls dieser vorhanden ist.</p>
+</div>
+<div class="notices warning">
+<div class=label>Warnung</div>
+<h4 id=kurschart-oder-performancechart>Kurschart oder Performancechart</h4>
+<p>Wie im <a href=../../glossar/>Glossar</a> erwähnt, muss zwischen ETF bzw. Fonds <strong>ausschüttend</strong> oder <strong>thesaurierend</strong> wie auch zwischen <strong>Kurs-</strong> und <strong>Performanceindex</strong> unterschieden werden. Ein ähnlicher Unterschied besteht zwischen Aktien mit oder ohne Ausschüttung.</p>
+<p>GT bietet für das Problem der unterschiedlichen Währungen von Instrumenten eine wählbare Währung an. Jedoch werden im Diagramm die täglichen <strong>Schlusskurse</strong> verwendet, diese können je nach Instrument die Erträge mit berücksichtigen oder auch nicht. Daher sollte sich der Benutzer immer bewusst sein, ob in diesem Diagramm <strong>ausschüttende</strong> oder <strong>thesaurierende</strong> ETFs bzw. Kurs- oder Performanceindizes miteinander verglichen werden.</p>
+<h4 id=gt-und-diese-problematik>GT und diese Problematik</h4>
+<p>Mit dieser Version verfügt GT nicht über die entsprechenden qualitativen Datenquellen für die exakte Berechnung der Performance eines Instrumentes. Eine Implementierung wird in Betracht gezogen, sobald die Erträge verlässlich aus den Datenquellen bezogen werden können.</p>
+</div>
 <h3 id=aktivierung-dieser-ansicht>Aktivierung dieser Ansicht</h3>
-<p>Die Ansicht des <strong>Zusatzbereichs</strong> kann von Unterschiedlichen Ansichten des <strong>Hauptbereiches</strong> aktiviert werden.</p>
+<p>Die <strong>Liniengrafik</strong> im <strong>Zusatzbereich</strong> kann von Unterschiedlichen Ansichten des <strong>Hauptbereiches</strong> aktiviert werden. In der Praxis wird sie wahrscheinlich meistens durch die Funktionalität der Watchlist genutzt. Jedoch gibt es in GT auch andere Ansichten mit einem Instrument pro Tabellenzeile, wo die folgende Funktionalität über das Kontextmenü angeboten wird.</p>
 <ul>
-<li><strong>Tagesenddaten als Liniengrafik</strong>: Erstellt eine neue Liniengrafik mit dem selektierten <strong>Instrument</strong>.</li>
-<li><strong>Hinzufügen als Liniengrafik</strong>: Das selektierte <strong>Instrument</strong> wird der Liniengrafik hinzugefügt.</li>
+<li><strong>Tagesenddaten als Liniengrafik</strong>: Erstellt eine <strong>neue Liniengrafik</strong> mit dem selektierten <strong>Instrument</strong>.</li>
+<li><strong>Hinzufügen als Liniengrafik</strong>: Das selektierte <strong>Instrument</strong> wird der <strong>bestehenden Liniengrafik</strong> hinzugefügt. Damit kann die Performance unterschiedliche Instrumente verglichen werden.</li>
 </ul>
-<h4 id=tranaktionen-in-der-lieniengrafik>Tranaktionen in der Lieniengrafik</h4>
-<p>Die <strong>Transaktionen</strong> wie <strong>Kaufen</strong>, <strong>Verkaufen</strong> und <strong>Zins/Dividende</strong> werden als Punkte in der Liniengrafik angezeigt. Die Grösse des Punktes bei Instrumenten ist einheitlich, bei den Währungspaaren wiederspiegelt sie das Transaktionsvolumen.</p>
+<h3 id=transaktionen-in-der-liniengrafik>Transaktionen in der Liniengrafik</h3>
+<p>Bei der Abbildung der Transaktionen wird unterschieden zwischen einem <strong>Wertpapier</strong> bzw. <strong>abgeleiteten Wertpapier</strong> und <strong>Währungspaar</strong>.</p>
+<ul>
+<li><strong>Wertpapier und abgeleiteten Wertpapier</strong>: Die <strong>Transaktionen</strong> wie <strong>Kaufen</strong>, <strong>Verkaufen</strong> und <strong>Zins/Dividende</strong> werden als Punkte in der Liniengrafik angezeigt. Die Grösse des Punktes ist beim Wertpapier einheitlich.</li>
+<li><strong>Währungspaar</strong>: Der Durchmesser des Punktes ist ein Abbild der Gesamtsumme der Transaktion. Ausserdem werden auch die Transaktion des wechselseitigen Währungspaars abgebildet. So enthält beispielsweise die Liniengrafik des Währungspaar EUR/USD auch die Transaktionen des Währungspaar USD/EUR. Die Grösse des Punkts wird vereinheitlicht sobald der Auswahlkasten <strong>Prozent</strong> markiert ist und/oder mehrere Instrumente bzw. Währungspaare angezeigt werden. Wertpapiertransaktionen mit dem involvierten Währungspaar wird entsprechend in <strong>Kaufen</strong> bzw. <strong>Verkaufen</strong> der betreffenden Währung transformiert.</li>
+</ul>
+<h2 id=funktionen>Funktionen</h2>
+<p>Allgemein verfügt ein <a href=../../intro/userinterface/user_setting_ui_controls/>Diagramm über eine gewisse Grundfunktionalität</a> die hier nicht weiter beschrieben wird. Zudem besitzt dieses Diagramm über einen <strong>interaktiven Kopfteil</strong> sowie ein <strong>Kontextmenü</strong> für die rudimentäre technische Analyse.</p>
+<h3 id=interaktionen-im-kopfteil>Interaktionen im Kopfteil</h3>
+<p>Dieses Diagramm bietet im Kopfteil zusätzliche Interaktionsmöglichkeiten:</p>
+<ul>
+<li><strong>Datum von</strong>: Ab diesem Datum werden die Kursdaten angezeigt. Für eine schnelle Einstellung gibt es Knöpfe für unterschiedliche Zeiträume.</li>
+<li><strong>Prozent</strong>: Sobald zwei oder mehr Instrumente als Liniengrafik angezeigt werden, ist die Anzeige der Grafik mit absoluten Werten nur in wenigen Fällen sinnvoll. Daher gibt es dieses Kontrollkästchen, es wird automatisch markiert, falls die Funktion &ldquo;<strong>Hinzufügen als Liniengrafik</strong>&rdquo; erstmalig ausgeführt wird. Wobei das System den vom Benutzer eingestellte Zustand dieses Auswahlkasten nicht übersteuert. Die prozentuale Anzeige der unterschiedlichen Instrumente ab einem bestimmten Datum ermöglicht einen besseren Vergleich der Kursänderungen.</li>
+<li><strong>Verbinde Lücken</strong>: Ist dieses Kontrollkästchen markiert, werden die vorhandenen Kursdaten mit einer Linie verbunden. Bei nicht markierten Auswahlkasten werden die möglichen Lücken von fehlenden Kursdaten sichtbar. Fehlende Kursdaten werden anhand des Handelskalender des entsprechenden Instrumentes ermittelt.</li>
+<li><strong>Währung</strong>: GT unterstützt die Instrumente in unterschiedlichen Währungen. Bei der Vergleichbarkeit der Performance von Instrumenten muss die Währung daher mitberücksichtigt werden. Ausgehend von der <strong>Währung des Klient</strong> kann eine beliebige Währung der angezeigten Instrumente ausgewählt werden. Die Wahl der Währung hat keine Auswirkung auf die Liniengrafik der <strong>Währungspaare</strong>.</li>
+</ul>
+<h3 id=kontextmenü-für-technische-indikatoren>Kontextmenü für technische Indikatoren</h3>
+<p>Zurzeit unterstützt GT nur den <strong>einfachen</strong> und <strong>exponentiell gleitenden Durchschnitt</strong>. Diese können über das Kontextmenü aktiviert und deaktiviert werden. Zusätzlich sind die Perioden in einem Dialog einstellbar.</p>
+<div class="notices info">
+<div class=label>Info</div>
+<p>GT wird kein Werkzeug für die <strong>technische Analyse</strong> sein, trotzdem werden zukünftig noch einige <strong>technische Indikatoren</strong> implementiert werden.</p>
+</div>
 <footer class=footline>
 </footer>
 </div>
@@ -438,17 +470,17 @@ Glossar
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/gt-user-manual/js/clipboard.min.js?1629033494></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1629033494></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1629033494></script>
-<script src=/gt-user-manual/js/jquery.sticky.js?1629033494></script>
-<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1629033494></script>
-<script src=/gt-user-manual/js/featherlight.min.js?1629033494></script>
-<script src=/gt-user-manual/js/highlight.pack.js?1629033494></script>
+<script src=/gt-user-manual/js/clipboard.min.js?1629223906></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1629223906></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1629223906></script>
+<script src=/gt-user-manual/js/jquery.sticky.js?1629223906></script>
+<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1629223906></script>
+<script src=/gt-user-manual/js/featherlight.min.js?1629223906></script>
+<script src=/gt-user-manual/js/highlight.pack.js?1629223906></script>
 <script>hljs.initHighlightingOnLoad()</script>
-<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1629033494></script>
-<script src=/gt-user-manual/js/mermaid.min.js?1629033494></script>
+<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1629223906></script>
+<script src=/gt-user-manual/js/mermaid.min.js?1629223906></script>
 <script>mermaid&&mermaid.mermaidAPI.initialize(Object.assign({securityLevel:"antiscript"},JSON.parse('{ "startOnLoad": true }'),{startOnLoad:!1}))</script>
-<script src=/gt-user-manual/js/relearn.js?1629033494></script>
+<script src=/gt-user-manual/js/relearn.js?1629223906></script>
 </body>
 </html>
