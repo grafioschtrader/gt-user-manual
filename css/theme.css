@@ -104,6 +104,7 @@ textarea:hover, input[type="email"]:hover, input[type="number"]:hover, input[typ
     text-align: center;
     border-bottom: 4px solid #9c6fb6;
     padding: 1rem;
+    position: relative;
 }
 #header a {
     display: inline-block;
@@ -279,7 +280,6 @@ textarea:hover, input[type="email"]:hover, input[type="number"]:hover, input[typ
 }
 #sidebar ul li li {
     padding-left: 1rem;
-    text-indent: 0.2rem;
 }
 #main {
     background: #f7f7f7;
@@ -1073,6 +1073,17 @@ option {
     margin-bottom: 1.7rem;
     margin-top: 1.7rem;
 }
+
+.mermaid > svg {
+    border: 1px solid transparent;
+    cursor: pointer;
+    /* remove inline height from generated diagram */
+    height: initial !important;
+}
+.mermaid > svg:hover {
+    border-color: #ccc;
+}
+
 
 .include.hide-first-heading h1:first-of-type,
 .include.hide-first-heading h2:first-of-type,
