@@ -8,16 +8,16 @@
 <link rel=alternate type=application/rss+xml href=/gt-user-manual/de/watchlistinstrument/correlation/index.xml title="Bedienungsanleitung Grafioschtrader">
 <meta name=description content>
 <title>Korrelationsmatrix :: Bedienungsanleitung Grafioschtrader</title>
-<link href=/gt-user-manual/css/nucleus.css?1638181755 rel=stylesheet>
-<link href=/gt-user-manual/css/fontawesome-all.min.css?1638181755 rel=stylesheet>
-<link href=/gt-user-manual/css/featherlight.min.css?1638181755 rel=stylesheet>
-<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1638181755 rel=stylesheet>
-<link href=/gt-user-manual/css/auto-complete.css?1638181755 rel=stylesheet>
-<link href=/gt-user-manual/css/theme.css?1638181755 rel=stylesheet>
-<link href=/gt-user-manual/css/theme-grafioschtrader.css?1638181755 rel=stylesheet>
-<link href=/gt-user-manual/css/variant.css?1638181755 rel=stylesheet>
-<link href=/gt-user-manual/css/print.css?1638181755 rel=stylesheet media=print>
-<script src=/gt-user-manual/js/jquery.min.js?1638181755></script>
+<link href=/gt-user-manual/css/nucleus.css?1638446766 rel=stylesheet>
+<link href=/gt-user-manual/css/fontawesome-all.min.css?1638446766 rel=stylesheet>
+<link href=/gt-user-manual/css/featherlight.min.css?1638446766 rel=stylesheet>
+<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1638446766 rel=stylesheet>
+<link href=/gt-user-manual/css/auto-complete.css?1638446766 rel=stylesheet>
+<link href=/gt-user-manual/css/theme.css?1638446766 rel=stylesheet>
+<link href=/gt-user-manual/css/theme-grafioschtrader.css?1638446766 rel=stylesheet>
+<link href=/gt-user-manual/css/variant.css?1638446766 rel=stylesheet>
+<link href=/gt-user-manual/css/print.css?1638446766 rel=stylesheet media=print>
+<script src=/gt-user-manual/js/jquery.min.js?1638446766></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/gt-user-manual/de/watchlistinstrument/correlation/>
@@ -35,9 +35,9 @@ Grafioschtrader
 <input data-search-input id=search-by type=search placeholder=Suchen...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/gt-user-manual/js/lunr.min.js?1638181755></script>
-<script src=/gt-user-manual/js/auto-complete.js?1638181755></script>
-<script src=/gt-user-manual/js/search.js?1638181755></script>
+<script src=/gt-user-manual/js/lunr.min.js?1638446766></script>
+<script src=/gt-user-manual/js/auto-complete.js?1638446766></script>
+<script src=/gt-user-manual/js/search.js?1638446766></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -143,16 +143,22 @@ Grafioschtrader
 <div id=chapter>
 <main id=body-inner>
 <h2 id=korrelationsmatrix>Korrelationsmatrix</h2>
-<p>Die Kenntnisse aus einer Korrelationsmatrix können durchaus unterstützend bei der Diversifizierung eines Portfolios sein. Die meisten Korrelationen verändern sich im Verlaufe der Zeit. Daher implementiert GT auch eine <strong>rollierende Korrelation</strong> als Liniengrafik. Die Berechnungen basieren auf den <strong>Tagesendkurse</strong>, wobei dabei unterschiedliche Zeiträume angewendet werden.</p>
+<p>Die Kenntnisse aus einer Korrelationsmatrix können durchaus unterstützend bei der Diversifizierung eines Portfolios sein. Die meisten Korrelationen verändern sich im Verlaufe der Zeit. Daher implementiert GT auch eine <strong>rollierende Korrelation</strong> als Liniengrafik. Die Berechnungen basieren auf dem <strong>Schlusskurs</strong> der <strong>Tagesenddaten</strong>, wobei dabei unterschiedliche Stichprobenzeiträume angewendet werden. Zusätzlich kann optional ein Zeitabschnitt mit Datumsangaben begrenzt werden.</p>
+<div class="notices note">
+<div class=label>Achtung!</div><h4 id=korrelation-und-dividende>Korrelation und Dividende</h4>
+<p>Wie im <a href=../../glossar/>Glossar</a> erwähnt, muss zwischen ETF bzw. Fonds <strong>ausschüttend</strong> oder <strong>thesaurierend</strong> wie auch zwischen <strong>Kurs-</strong> und <strong>Performanceindex</strong> unterschieden werden. Ein ähnlicher Unterschied besteht zwischen <strong>Aktien</strong> mit oder ohne <strong>Dividende</strong>.</p>
+<h4 id=gt-und-diese-problematik>GT und diese Problematik</h4>
+<p>GT berücksichtigt in der Version die Dividenden für die Korrelationen nicht. Dies kann zu leichten Verzerrungen bei den Resultaten führen.</p>
+</div>
 <h3 id=korrelationsmatrix-und-korrelationsset>Korrelationsmatrix und Korrelationsset</h3>
-<p>Eine Korrelationsmatrix wird durch die Einstellungen eines einzelnes <strong>Korrelationsset</strong> bestimmt. Ein Benutzer kann mehrere Korrelationsset erstellen und bearbeiten.</p>
+<p>Eine Korrelationsmatrix wird durch die Einstellungen eines einzelnen <strong>Korrelationsset</strong> bestimmt. Ein Benutzer kann mehrere Korrelationsset erstellen und bearbeiten.</p>
 <ul>
 <li>Der Korrelationsmatrix kann ein Instrument ohne Kursdaten nicht hinzugefügt werden. Ein solches definiert sich durch einen Handelsplatz ohne Kursdaten.</li>
 <li>Die maximale Anzahl von Korrelationsset ist durch den Wert von &ldquo;gt.max.correlation.set&rdquo; in Globale Einstellungen gegeben.</li>
 <li>Die maximale Anzahl Instrumente pro Korrelationsset ist durch den Wert von"gt.max.correlation.instruments" in Globale Einstellungen definiert.</li>
 </ul>
 <h3 id=funktionalität>Funktionalität</h3>
-<p>Wir unterscheiden die Funktionalität bezüglich der <strong>Definition</strong> und den <strong>Instrumenten</strong> eines Korrelationsset. Die <strong>Korrelationsmatrix</strong> entsteht dadurch, dass die Definition auf die entsprechenden Instrumente angewendet wird.</p>
+<p>Die <strong>Korrelationsmatrix</strong> wird durch die Selektion des statischen Elementes &ldquo;<strong>Watchlist</strong>&rdquo; im <strong>Navigationsbaum</strong> angesteuert. Wir unterscheiden die Funktionalität bezüglich der <strong>Definition</strong> und den <strong>Instrumenten</strong> eines Korrelationsset. Die <strong>Korrelationsmatrix</strong> entsteht dadurch, dass die Definition auf die entsprechenden Instrumente angewendet wird.</p>
 <h4 id=erstellen-und-bearbeiten-korrelationsset>Erstellen und bearbeiten Korrelationsset</h4>
 <p>Die <strong>Definition</strong> eines Korrelationsset kann wie folgt bearbeitet werden:</p>
 <ul>
@@ -160,7 +166,9 @@ Grafioschtrader
 <li>Bearbeiten eines <strong>Korrelationsset</strong> über das <strong>Kontextmenü</strong> bei <strong>selektiertem Korrelationsset</strong>.</li>
 <li>Löschen eines <strong>Korrelationsset</strong> über das <strong>Kontextmenü</strong> bei <strong>selektiertem Korrelationsset</strong>.</li>
 </ul>
+<p>Die meisten Eigenschaften eines bestehenden Korrelationsset können direkt in der Ansicht Korrelationsmatrix bearbeitet werden. Durch die Schaltfläche &ldquo;<strong>Speichern und berechnen</strong>&rdquo; wird die Korrelationsmatrix entsprechend aktualisiert.</p>
 <h4 id=funktionen-für-instrumente>Funktionen für Instrumente</h4>
+<p>Bei den Funktionen für Instrumente, wird zwischen selektierten Instrument oder keiner Selektion unterschieden. Zusätzlich bewirkt ein <strong>Zellklick</strong> in die Korrelationsmatrix möglicherweise weitere Funktionalität für die <strong>rollierende Korrelation</strong>.</p>
 <h5 id=funktion-bei-selektiertem-korrelationsset>Funktion bei selektiertem Korrelationsset</h5>
 <p>Einem Korrelationsset werden bestehende <strong>Instrumente</strong> hinzugefügt auf welche danach die <strong>Definition</strong> angewendet wird.</p>
 <ul>
@@ -171,8 +179,14 @@ Grafioschtrader
 <li><strong>Instrument entfernen</strong>: Das selektierte Instrument kann aus der Korrelationsmatrix entfernt werden.</li>
 <li><strong>Hyperlink Handelsplatz und Produkt</strong>: Siehe dazu <a href=../instrument/securityderived/>Wertpapier und abgeleitetes Instrument</a>.</li>
 </ul>
+<h5 id=funktion-selektiertes-instrument-und-zellenklick>Funktion selektiertes Instrument und Zellenklick</h5>
+<p>Bei einem <strong>Klick</strong> in eine <strong>Zelle</strong> der Korrelationsmatrix wird das Menü Ansicht bzw.das Kontextmenü mit der Funktion für die rollierende Korrelationsgrafik der beiden Instrumente erweitert. Eine bestehende rollende Korrelationsgrafik kann auch mit weiteren Korrelationen erweitert werden.</p>
 <h3 id=eigenschaften>Eigenschaften</h3>
+<div class="notices note">
+<div class=label>Grenze von Stichprobenzeitraum "Täglicher Ertrag"</div><p>Ein Stichprobenzeitraum der auf den <strong>täglichen Ertrag</strong> basiert ist nicht immer aussagekräftig. Bei ETFs die denselben Index nachbilden wird eine Korrelation nahe 1 erwartet. Trotzdem kann es erhebliche Unterschiede geben, beispielsweise der S&P 500. Dieser wird von unterschiedlichen Anbietern in verschiedenen Regionen angeboten. Durch die Zeitzonen ergeben diese unterschiedlichen Handelszeiten und somit auch differenzierte Schlusskurse. Anders bei <strong>&ldquo;Monatlicher Ertrag&rdquo;</strong>, hier haben die verschiedenen Schlusskurse der Handelsplätze kaum Auswirkung auf die Korrelation.</p>
+</div>
 <ul>
+<li><strong>Datum von</strong> und <strong>Datum bis</strong>: Damit kann ein Zeitabschnitt für die Korrelation definiert werden. Es können beide oder auch nur ein einzelnes Datum gesetzt werden.</li>
 <li><strong>Stichprobenzeitraum</strong>:
 <ul>
 <li>Beim &ldquo;<strong>Jährlicher Ertrag</strong>&rdquo; basieren die Berechnungen jeweils auf den verfügbaren <strong>Schlusskurse</strong> des ersten Handelstag eines <strong>Jahres</strong>. Für dieses vom System ermittelte Datum liegen die Tagesendkurse aller relevanten Instrumente vor.</li>
@@ -181,6 +195,13 @@ Grafioschtrader
 </li>
 <li><strong>Gleitende Korrelation</strong>: Diese Eigenschaft beeinflusst die <strong>rollierende Korrelation</strong> in der grafischen Darstellung.</li>
 <li><strong>Währungsbereinigt</strong>: Falls Instrumente mit unterschiedlichen Währungen vorliegen, kann optional die Berechnung mit Währungsbereinigung ausgeführt werden. Die entsprechenden Währungspaare werden durch das System bestimmt und sind durch den Benutzer nicht einsehbar.</li>
+</ul>
+<h3 id=expandierende-tabellenzeile>Expandierende Tabellenzeile</h3>
+<p>Durch den Klick auf das geschlossene <strong>Expander-Symbol</strong> werden die [Rendite und statistische Daten] angezeigt, siehe dazu <a href=./returnstatdata/>Rendite und statistische Daten</a>.</p>
+<h3 id=rollende-korrelation>Rollende Korrelation</h3>
+<p>Im Zusatzbereich kann eine gewünschte rollende Korrelation angezeigt werden. Weitere Korrelationen können einer bestehenden Grafik hinzugefügt werden. Das Auslösen der Schaltfläche &ldquo;<strong>Speichern und berechnen</strong>&rdquo; aktualisiert auch die rollende Korrelation.</p>
+<ul>
+<li>Falls ein <strong>Datum von</strong> definiert ist und die entsprechenden Schlusskurse vorhanden sind, wird dieses als das Startdatum der rollende Korrelation gewählt.</li>
 </ul>
 <footer class=footline>
 </footer>
@@ -193,14 +214,14 @@ Grafioschtrader
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/gt-user-manual/js/clipboard.min.js?1638181755></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1638181755></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1638181755></script>
-<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1638181755></script>
-<script src=/gt-user-manual/js/featherlight.min.js?1638181755></script>
-<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1638181755></script>
-<script src=/gt-user-manual/js/mermaid.min.js?1638181755></script>
+<script src=/gt-user-manual/js/clipboard.min.js?1638446766></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1638446766></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1638446766></script>
+<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1638446766></script>
+<script src=/gt-user-manual/js/featherlight.min.js?1638446766></script>
+<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1638446766></script>
+<script src=/gt-user-manual/js/mermaid.min.js?1638446766></script>
 <script>typeof mermaid!='undefined'&&typeof mermaid.mermaidAPI!='undefined'&&mermaid.mermaidAPI.initialize(Object.assign({securityLevel:"antiscript"},JSON.parse('{ "startOnLoad": true }'),{startOnLoad:!1}))</script>
-<script src=/gt-user-manual/js/relearn.js?1638181755></script>
+<script src=/gt-user-manual/js/relearn.js?1638446766></script>
 </body>
 </html>
