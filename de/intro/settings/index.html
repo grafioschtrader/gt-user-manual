@@ -2,22 +2,22 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=generator content="Hugo 0.89.4">
+<meta name=generator content="Hugo 0.90.0">
 <meta name=generator content="Relearn 2.9.2
 ">
 <link rel=alternate type=application/rss+xml href=/gt-user-manual/de/intro/settings/index.xml title="Bedienungsanleitung Grafioschtrader">
 <meta name=description content>
 <title>Einstellungen :: Bedienungsanleitung Grafioschtrader</title>
-<link href=/gt-user-manual/css/nucleus.css?1638985331 rel=stylesheet>
-<link href=/gt-user-manual/css/fontawesome-all.min.css?1638985331 rel=stylesheet>
-<link href=/gt-user-manual/css/featherlight.min.css?1638985331 rel=stylesheet>
-<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1638985331 rel=stylesheet>
-<link href=/gt-user-manual/css/auto-complete.css?1638985331 rel=stylesheet>
-<link href=/gt-user-manual/css/theme.css?1638985331 rel=stylesheet>
-<link href=/gt-user-manual/css/theme-grafioschtrader.css?1638985331 rel=stylesheet>
-<link href=/gt-user-manual/css/variant.css?1638985331 rel=stylesheet>
-<link href=/gt-user-manual/css/print.css?1638985331 rel=stylesheet media=print>
-<script src=/gt-user-manual/js/jquery.min.js?1638985331></script>
+<link href=/gt-user-manual/css/nucleus.css?1639151893 rel=stylesheet>
+<link href=/gt-user-manual/css/fontawesome-all.min.css?1639151893 rel=stylesheet>
+<link href=/gt-user-manual/css/featherlight.min.css?1639151893 rel=stylesheet>
+<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1639151893 rel=stylesheet>
+<link href=/gt-user-manual/css/auto-complete.css?1639151893 rel=stylesheet>
+<link href=/gt-user-manual/css/theme.css?1639151893 rel=stylesheet>
+<link href=/gt-user-manual/css/theme-grafioschtrader.css?1639151893 rel=stylesheet>
+<link href=/gt-user-manual/css/variant.css?1639151893 rel=stylesheet>
+<link href=/gt-user-manual/css/print.css?1639151893 rel=stylesheet media=print>
+<script src=/gt-user-manual/js/jquery.min.js?1639151893></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style>
 </head>
 <body data-url=/gt-user-manual/de/intro/settings/>
@@ -35,9 +35,9 @@ Grafioschtrader
 <input data-search-input id=search-by type=search placeholder=Suchen...>
 <span data-search-clear><i class="fas fa-times"></i></span>
 </div>
-<script src=/gt-user-manual/js/lunr.min.js?1638985331></script>
-<script src=/gt-user-manual/js/auto-complete.js?1638985331></script>
-<script src=/gt-user-manual/js/search.js?1638985331></script>
+<script src=/gt-user-manual/js/lunr.min.js?1639151893></script>
+<script src=/gt-user-manual/js/auto-complete.js?1639151893></script>
+<script src=/gt-user-manual/js/search.js?1639151893></script>
 </div>
 <div class=highlightable>
 <ul class=topics>
@@ -159,7 +159,7 @@ Grafioschtrader
 <div class=label>Anmerkung</div><p>Die historischen Kursdaten eines Instrumentes werden <strong>nicht exportiert</strong>, falls dieses beim Zeitpunkt des Exportes plus einen Monat noch <strong>aktiv</strong> ist. Die historischen Kursdaten werden mit dem ersten Aufstarten des Back-End der neuen GT-Instanz nach einigen Minuten durch die entsprechenden Konnektoren geladen.</p>
 </div>
 <h4 id=export-in-datenbank-importieren>Export in Datenbank importieren</h4>
-<p>Falls Sie den Export gemäss Ihren Bedürfnissen weiter verarbeiten möchten, können Sie wie folgt vorgehen:</p>
+<p>Falls Sie den Export gemäss Ihren Bedürfnissen weiter verarbeiten möchten, könnten Sie wie folgt vorgehen. Im folgenden wurde hier die Datenbank <strong>grafioschtrader_s</strong> und nicht <strong>grafioschtrader</strong> genannt.</p>
 <pre tabindex=0><code># Unzip file gtPersonalData.zip
 unzip gtPersonalData.zip
 # Erstellen der Datenbank mit Ihrem gewünschten Passwort für grafioschtrader
@@ -170,19 +170,19 @@ mysql -ugrafioschtrader -p --default-character-set=utf8 grafioschtrader_s &lt; g
 mysql -ugrafioschtrader -p --default-character-set=utf8 grafioschtrader_s &lt; gt_data.sql 
 </code></pre><p>Sie können die GT-Datenbank beispielsweise mit <a href=//www.phpmyadmin.net/>phpMyAdmin</a> auswerten bzw. bearbeiten.</p>
 <h4 id=export-als-neue-gt-instanz-benutzen>Export als neue GT-Instanz benutzen</h4>
-<p>Wir erwähnt, können Sie Ihre exportierten Daten als Grundlage für eine neue GT-Instanz benutzen. Für die Installation von GT folgen Sie dem <a href=//github.com/grafioschtrader/grafioschtrader/wiki>wiki auf GitHub</a>. Nach der Installation kann der Export wie folgt importiert werden:</p>
+<p>Wir erwähnt, können Sie Ihre exportierten Daten als Grundlage für eine neue GT-Instanz benutzen. Für die Installation von GT folgen Sie dem <a href=//github.com/grafioschtrader/grafioschtrader/wiki>wiki auf GitHub</a>. Nach der Installation kann der Export importiert werden.</p>
 <pre tabindex=0><code># Beende Grafioschtrader Service falls er läuft 
 sudo systemctl stop grafioschtrader.service
 # Unzip file gtPersonalData.zip
 unzip gtPersonalData.zip
 # Löschen der bestehenden Datenbank
-mysql -u root -p -D grafioschtrader_s -e &quot;DROP DATABASE grafioschtrader_s&quot;
+mysql -u root -p -D grafioschtrader -e &quot;DROP DATABASE grafioschtrader&quot;
 # Erstellen der Datenbank mit Ihrem gewünschten Passwort für grafioschtrader
-mysql -u root -p -e &quot;create database grafioschtrader_s; GRANT ALL PRIVILEGES ON grafioschtrader_s.* TO grafioschtrader@localhost IDENTIFIED BY 'YOUR_DB_PASSWORD'&quot;
-# GT-Datenbank Schema erstellen
-mysql -ugrafioschtrader -p --default-character-set=utf8 grafioschtrader_s &lt; gt_ddl.sql
-# Import der persönlichen Daten
-mysql -ugrafioschtrader -p --default-character-set=utf8 grafioschtrader_s &lt; gt_data.sql 
+mysql -u root -p -e &quot;create database grafioschtrader; GRANT ALL PRIVILEGES ON grafioschtrader.* TO grafioschtrader@localhost IDENTIFIED BY 'YOUR_DB_PASSWORD'&quot;
+# GT-Datenbank Schema erstellen, das Passwort von oben ('YOUR_DB_PASSWORD') wird nachgefragt
+mysql -ugrafioschtrader -p --default-character-set=utf8 grafioschtrader &lt; gt_ddl.sql
+# Import der persönlichen Daten, das Passwort von oben ('YOUR_DB_PASSWORD') wird nachgefragt
+mysql -ugrafioschtrader -p --default-character-set=utf8 grafioschtrader &lt; gt_data.sql 
 # Grafioschtrader Service starten falls er dieser existiert
 sudo systemctl start grafioschtrader.service
 </code></pre><p>
@@ -209,14 +209,14 @@ sudo systemctl start grafioschtrader.service
 <div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
 <div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div>
 </div>
-<script src=/gt-user-manual/js/clipboard.min.js?1638985331></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1638985331></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1638985331></script>
-<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1638985331></script>
-<script src=/gt-user-manual/js/featherlight.min.js?1638985331></script>
-<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1638985331></script>
-<script src=/gt-user-manual/js/mermaid.min.js?1638985331></script>
+<script src=/gt-user-manual/js/clipboard.min.js?1639151893></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1639151893></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1639151893></script>
+<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1639151893></script>
+<script src=/gt-user-manual/js/featherlight.min.js?1639151893></script>
+<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1639151893></script>
+<script src=/gt-user-manual/js/mermaid.min.js?1639151893></script>
 <script>typeof mermaid!='undefined'&&typeof mermaid.mermaidAPI!='undefined'&&mermaid.mermaidAPI.initialize(Object.assign({securityLevel:"antiscript"},JSON.parse('{ "startOnLoad": true }'),{startOnLoad:!1}))</script>
-<script src=/gt-user-manual/js/relearn.js?1638985331></script>
+<script src=/gt-user-manual/js/relearn.js?1639151893></script>
 </body>
 </html>
