@@ -7,16 +7,16 @@
 ">
 <link rel=alternate type=application/rss+xml href=/gt-user-manual/de/intro/userrights/index.xml title="Bedienungsanleitung Grafioschtrader">
 <meta name=description content>
-<title>Daten und Benutzerrechte :: Bedienungsanleitung Grafioschtrader</title><link href=/gt-user-manual/css/nucleus.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/fontawesome-all.min.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/featherlight.min.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/auto-complete.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/theme.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/theme-grafioschtrader.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/variant.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/print.css?1646685551 rel=stylesheet media=print>
-<script src=/gt-user-manual/js/jquery.min.js?1646685551></script>
+<title>Daten und Benutzerrechte :: Bedienungsanleitung Grafioschtrader</title><link href=/gt-user-manual/css/nucleus.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/fontawesome-all.min.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/featherlight.min.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/auto-complete.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/theme.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/theme-grafioschtrader.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/variant.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/print.css?1646728773 rel=stylesheet media=print>
+<script src=/gt-user-manual/js/jquery.min.js?1646728773></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style></head><body data-url=/gt-user-manual/de/intro/userrights/>
 <script>var index_url="/gt-user-manual/de/index.json",root_url="/",baseUri=root_url.replace(/\/$/,'')</script>
 <nav id=sidebar>
@@ -30,9 +30,9 @@ Grafioschtrader
 <label for=search-by><i class="fas fa-search"></i></label>
 <input data-search-input id=search-by type=search placeholder=Suchen...>
 <span data-search-clear><i class="fas fa-times"></i></span>
-</div><script src=/gt-user-manual/js/lunr.min.js?1646685551></script>
-<script src=/gt-user-manual/js/auto-complete.js?1646685551></script>
-<script src=/gt-user-manual/js/search.js?1646685551></script>
+</div><script src=/gt-user-manual/js/lunr.min.js?1646728773></script>
+<script src=/gt-user-manual/js/auto-complete.js?1646728773></script>
+<script src=/gt-user-manual/js/search.js?1646728773></script>
 </div><div class=highlightable>
 <ul class=topics>
 <li data-nav-id=/gt-user-manual/de/intro/ title=Einführung class="dd-item parent"><a href=/gt-user-manual/de/intro/>Einführung</a><ul>
@@ -85,13 +85,13 @@ Grafioschtrader
 </div><h3 id=privilegierter-benutzer>Privilegierter Benutzer</h3><p>Dieser hat die gleichen Benutzerrechte wie Benutzer ohne Limits plus kann er auch die <strong>geteilten Daten</strong> aller Benutzer verändern. Das Bearbeiten des <strong>Handelskalender global</strong> und der <strong>Globale Einstellungen</strong> ist dem Benutzer dieser Gruppe nicht erlaubt.</p><h3 id=administrator>Administrator</h3><p>Er kann alle <strong>geteilten Daten</strong> verändern. Zusätzlich kann er Globale und einige Einstellungen des Benutzers ändern.</p><h2 id=schutz-der-fremddaten-und-das-anfragelimit>Schutz der Fremddaten und das Anfragelimit</h2><p>Der <strong>Client</strong> von GT kommuniziert mittels einem <strong>REST-API</strong> mit dem <strong>Back-End</strong>. Dieses REST-API ist eine allgemeine Schnittstelle und könnte auch von einem anderen Dienst benutzt werden. Die <strong>privaten Daten</strong> müssen aber besonders geschützt bleiben. Gezielte Zugriff auf die privaten Daten anderer Benutzer werden erkannt und bestraft. Bei mehrfacher Widerhandlung wird der Benutzer gesperrt, die Globale Einstellung von <strong>gt.max.security.breach.count</strong> bestimmt dieses Limit.</p><h3 id=anfragelimit>Anfragelimit</h3><p>GT implementiert eine <strong>Anfragelimit</strong> mittels <strong>Token-Bucket</strong> auf Minuten- und Stundenbasis. D.h. es können pro Benutzer nur eine limitierte Anzahl von Anfragen in den genannten Zeiträumen an das <strong>Back-end</strong> erfolgreich erteilt werden. Am häufigsten wird diese Ratenbegrenzung eingesetzt, um einen Ressourcenmangel zu vermeiden und so die Verfügbarkeit von API-basierten Diensten zu verbessern. Im täglichen Gebrauch wird dieses Abfragelimit kaum überschritten, andernfalls erhält der Benutzer ein Hinweis. Bei mehrmaligen Verstoss und mit dem überschreiten der Globalen Einstellung von <strong>gt.max.limit.request.exceeded.count</strong> wird dieser Benutzer von GT ausgesperrt.</p><footer class=footline>
 </footer></div></main></div><div id=navigation>
 </div></div><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
-<div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/gt-user-manual/js/clipboard.min.js?1646685551></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1646685551></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1646685551></script>
-<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1646685551></script>
-<script src=/gt-user-manual/js/featherlight.min.js?1646685551></script>
-<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1646685551></script>
-<script src=/gt-user-manual/js/mermaid.min.js?1646685551></script>
+<div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/gt-user-manual/js/clipboard.min.js?1646728773></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1646728773></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1646728773></script>
+<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1646728773></script>
+<script src=/gt-user-manual/js/featherlight.min.js?1646728773></script>
+<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1646728773></script>
+<script src=/gt-user-manual/js/mermaid.min.js?1646728773></script>
 <script>typeof mermaid!="undefined"&&typeof mermaid.mermaidAPI!="undefined"&&mermaid.mermaidAPI.initialize(Object.assign({securityLevel:"antiscript"},JSON.parse('{ "startOnLoad": true }'),{startOnLoad:!1}))</script>
-<script src=/gt-user-manual/js/relearn.js?1646685551></script>
+<script src=/gt-user-manual/js/relearn.js?1646728773></script>
 </body></html>

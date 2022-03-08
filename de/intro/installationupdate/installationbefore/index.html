@@ -7,16 +7,16 @@
 ">
 <link rel=alternate type=application/rss+xml href=/gt-user-manual/de/intro/installationupdate/installationbefore/index.xml title="Bedienungsanleitung Grafioschtrader">
 <meta name=description content>
-<title>Unterschiedliche Installationsarten :: Bedienungsanleitung Grafioschtrader</title><link href=/gt-user-manual/css/nucleus.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/fontawesome-all.min.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/featherlight.min.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/auto-complete.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/theme.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/theme-grafioschtrader.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/variant.css?1646685551 rel=stylesheet>
-<link href=/gt-user-manual/css/print.css?1646685551 rel=stylesheet media=print>
-<script src=/gt-user-manual/js/jquery.min.js?1646685551></script>
+<title>Unterschiedliche Installationsarten :: Bedienungsanleitung Grafioschtrader</title><link href=/gt-user-manual/css/nucleus.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/fontawesome-all.min.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/featherlight.min.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/perfect-scrollbar.min.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/auto-complete.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/theme.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/theme-grafioschtrader.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/variant.css?1646728773 rel=stylesheet>
+<link href=/gt-user-manual/css/print.css?1646728773 rel=stylesheet media=print>
+<script src=/gt-user-manual/js/jquery.min.js?1646728773></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}</style></head><body data-url=/gt-user-manual/de/intro/installationupdate/installationbefore/>
 <script>var index_url="/gt-user-manual/de/index.json",root_url="/",baseUri=root_url.replace(/\/$/,'')</script>
 <nav id=sidebar>
@@ -30,9 +30,9 @@ Grafioschtrader
 <label for=search-by><i class="fas fa-search"></i></label>
 <input data-search-input id=search-by type=search placeholder=Suchen...>
 <span data-search-clear><i class="fas fa-times"></i></span>
-</div><script src=/gt-user-manual/js/lunr.min.js?1646685551></script>
-<script src=/gt-user-manual/js/auto-complete.js?1646685551></script>
-<script src=/gt-user-manual/js/search.js?1646685551></script>
+</div><script src=/gt-user-manual/js/lunr.min.js?1646728773></script>
+<script src=/gt-user-manual/js/auto-complete.js?1646728773></script>
+<script src=/gt-user-manual/js/search.js?1646728773></script>
 </div><div class=highlightable>
 <ul class=topics>
 <li data-nav-id=/gt-user-manual/de/intro/ title=Einführung class="dd-item parent"><a href=/gt-user-manual/de/intro/>Einführung</a><ul>
@@ -97,13 +97,13 @@ Grafioschtrader
 <li>Installation ist komplizierter.</li></ul></li></ul><h4 id=selbst-gehostet-mit-ddnsdns-und-tls-zertifikat>Selbst gehostet mit DDNS/DNS und TLS Zertifikat</h4><p>Eine kleine Installation mit wenigen Benutzer läuft schon auf einem privaten <a href=//www.raspberrypi.org/products/raspberry-pi-4-model-b/>Raspberry Pi 4</a>. Ein TLS Zertifikat kriegen Sie bei <a href=//letsencrypt.org/>Let&rsquo;s Encrypt</a> gratis. Kostenlose freie dynamische DNS gibt es beispielsweise bei <a href=//www.duckdns.org/>DuckDNS</a>. Leider ist bei vielen Internetanbietern die Upload Geschwindigkeit noch immer sehr gering, dies kann zu Verzögerungen bei externen Zugriffen auf Ihren an das Internet angeschlossenen Heim-Server führen.</p><p>Alternativ gibt es heute günstige Virtual Private Server (VPS), diese haben nicht den Nachteil von Upload Geschwindigkeiten oder einer sich ändernden IP-Adresse. Zudem müssen Sie sich auch nicht um die Firewall ihres Heimrouters kümmern.</p><h4 id=anbieter-als-saas>Anbieter als (SaaS)</h4><p>Falls Sie über die entsprechenden Computerressourcen im Internet verfügen, können Sie GT auch als <strong>Software as a Service</strong> (SaaS) anbieten. Dabei gibt es heute eine vielzahl von Möglichkeiten wie beispielsweise Root- und Virtual Server.</p><h2 id=warum-ein-tls-zertifikat>Warum ein TLS Zertifikat</h2><p>GTs <strong>Benutzerauthentifizierung</strong> basiert auf dem <strong>JSON Web Token</strong>. Für die Kommunikation im Internet ist ein <strong>TLS Serverzertifikat</strong> für GT notwendig, andernfalls kann keine sichere Verbindung zwischen dem Client und Server bzw. Server und Server statt finden. Zusätzlich sind dadurch Ihre sensiblen Finanzdaten geschützt.</p><h3 id=json-web-token-jwt>JSON Web Token (JWT)</h3><p>Lange Zeit wurden Cookies für die Benutzerauthentifizierung im Web verwendet. Dies funktioniert für bestimmte Anwendungen sehr gut, hat aber den Nachteil, dass der Authentifizierungsvorgang einen Webbrowser benötigt. GT ist eine Single-Page-Webanwendung (SPA) die vorwiegend über ein REST-API mit dem Back-End kommuniziert. Dieses REST-API kann auch von einem nicht Webbrowser genutzt werden. Daher basiert die Authentifikation von GT auf dem <strong>JSON Web Token</strong> (JWT). Wer dieses <strong>JWT</strong> besitzt hat den Schlüssel der <strong>Authentifizierung</strong> und damit den <strong>Zugang</strong> zu den Daten, welche damit geschützt sind. Damit dieses <strong>JWT</strong> nicht in &ldquo;falsche Hände&rdquo; gerät, muss die Kommunikation im öffentlichen Netzwerk über eine <strong>HTTPS-Verbindung</strong> erfolgen.</p><footer class=footline>
 </footer></div></main></div><div id=navigation>
 </div></div><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px>
-<div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/gt-user-manual/js/clipboard.min.js?1646685551></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1646685551></script>
-<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1646685551></script>
-<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1646685551></script>
-<script src=/gt-user-manual/js/featherlight.min.js?1646685551></script>
-<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1646685551></script>
-<script src=/gt-user-manual/js/mermaid.min.js?1646685551></script>
+<div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/gt-user-manual/js/clipboard.min.js?1646728773></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.min.js?1646728773></script>
+<script src=/gt-user-manual/js/perfect-scrollbar.jquery.min.js?1646728773></script>
+<script src=/gt-user-manual/js/jquery.svg.pan.zoom.js?1646728773></script>
+<script src=/gt-user-manual/js/featherlight.min.js?1646728773></script>
+<script src=/gt-user-manual/js/modernizr.custom-3.6.0.js?1646728773></script>
+<script src=/gt-user-manual/js/mermaid.min.js?1646728773></script>
 <script>typeof mermaid!="undefined"&&typeof mermaid.mermaidAPI!="undefined"&&mermaid.mermaidAPI.initialize(Object.assign({securityLevel:"antiscript"},JSON.parse('{ "startOnLoad": true }'),{startOnLoad:!1}))</script>
-<script src=/gt-user-manual/js/relearn.js?1646685551></script>
+<script src=/gt-user-manual/js/relearn.js?1646728773></script>
 </body></html>
