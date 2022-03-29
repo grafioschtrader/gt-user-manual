@@ -51,6 +51,20 @@ h5 {
     font-size: 1.2rem;
 }
 
+#body .flex-block-wrapper {
+    max-width: none;
+}
+
+#body-inner.chapter {
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+}
+
+
+#body-inner.chapter p {
+    font-size: 1rem;
+    text-align: justify;
+}
+
 #chapter {
     justify-content: left;
     padding: 0 0;
