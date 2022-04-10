@@ -7,6 +7,8 @@ if( isIE ){
 else{
     document.querySelector( 'body' ).classList.add( 'mobile-support' );
 }
+var isPrint = document.querySelector( 'body' ).classList.contains( 'print' );
+
 var touchsupport = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)
 
 var formelements = 'button, datalist, fieldset, input, label, legend, meter, optgroup, option, output, progress, select, textarea';
@@ -184,7 +186,7 @@ function initAnchorClipboard(){
         new_element.setAttribute( 'title', window.T_Copy_link_to_clipboard );
         new_element.setAttribute( 'data-clipboard-text', link );
         new_element.innerHTML = '<i class="fas fa-link fa-lg"></i>';
-        element.append( new_element );
+        element.appendChild( new_element );
     });
 
     $(".anchor").on('mouseleave', function(e) {
@@ -295,12 +297,11 @@ function initArrowNav(){
 }
 
 function initMenuScrollbar(){
-    var content = '#body-inner';
-    if( isIE ){
-        // IE can not display the topbar as sticky; so we let
-        // the whole body scroll instead of just the content
-        content = '#body';
+    if( isPrint ){
+        return;
     }
+
+    var content = '#body-inner';
     var autofocus = false;
     document.addEventListener('keydown', function(event){
         // for initial keyboard scrolling support, no element
@@ -333,10 +334,6 @@ function initMenuScrollbar(){
     // that need to be executed inbetween our own handlers
     var psm = new PerfectScrollbar('#content-wrapper');
     var psc = new PerfectScrollbar(content);
-    window.addEventListener('resize', function(){
-        psm && psm.update();
-        psc && psc.update();
-    });
     document.addEventListener('keydown', function(){
         // if we facked initial scrolling, we want to
         // remove the focus to not leave visual markers on
@@ -346,6 +343,19 @@ function initMenuScrollbar(){
             psm.scrollbarY.blur();
             autofocus = false;
         }
+    });
+    // on resize, we have to redraw the scrollbars to let new height
+    // affect their size
+    window.addEventListener('resize', function(){
+        psm && psm.update();
+        psc && psc.update();
+    });
+    // now that we may have collapsible menus, we need to call a resize
+    // for the menu scrollbar if sections are expanded/collapsed
+    document.querySelectorAll('#sidebar .collapsible-menu input.toggle').forEach( function(e){
+        e.addEventListener('change', function(){
+            psm && psm.update();
+        });
     });
 }
 
@@ -478,10 +488,24 @@ function initSwipeHandler(){
 
 function scrollToActiveMenu() {
     window.setTimeout(function(){
-        var e = $("#sidebar ul.topics li.active a")[0];
+        var e = document.querySelector( '#sidebar ul.topics li.active a' );
         if( e && e.scrollIntoView ){
             e.scrollIntoView({
                 block: 'center',
+            });
+        }
+    }, 10);
+}
+
+function scrollToFragment() {
+    if( !window.location.hash || window.location.hash.length <= 1 ){
+        return;
+    }
+    window.setTimeout(function(){
+        var e = document.querySelector( window.location.hash );
+        if( e && e.scrollIntoView ){
+            e.scrollIntoView({
+                block: 'start',
             });
         }
     }, 10);
@@ -538,6 +562,7 @@ jQuery(function() {
     initSwagger();
     initMenuScrollbar();
     scrollToActiveMenu();
+    scrollToFragment();
     initLightbox();
     initImageStyles();
     initToc();
