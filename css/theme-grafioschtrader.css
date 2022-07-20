@@ -204,3 +204,15 @@ pre {
 .searchbox {
   margin-top: 0.2rem;
 }
+
+
+/* we limit width if we have large screens */
+@media screen and ( min-width: 1300px ){ /* #sidebar/width + ./max-width */
+    #body .flex-block-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+}
