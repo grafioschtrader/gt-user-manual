@@ -208,7 +208,7 @@ pre {
 
 /* we limit width if we have large screens */
 @media screen and ( min-width: 1300px ){ /* #sidebar/width + ./max-width */
-    #body .flex-block-wrapper {
+    #body .narrow .flex-block-wrapper {
         margin-left: auto;
         margin-right: auto;
         min-width: 100%;
