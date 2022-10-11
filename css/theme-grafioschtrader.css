@@ -205,9 +205,14 @@ pre {
   margin-top: 0.2rem;
 }
 
+body:not(.print) #body-inner.narrow {
+    padding: 0.25rem 0.25rem;
+}
+
+
 
 /* we limit width if we have large screens */
-@media screen and (min-width: 1300px){ /* #sidebar/width + ./max-width */
+@media screen and ( min-width: 1300px ){ /* #sidebar/width + ./max-width */
     #body .flex-block-wrapper {
         margin-left: auto;
         margin-right: auto;
@@ -215,10 +220,13 @@ pre {
         width: 100%;
         max-width: 100%;
     }
-    #body .narrow .flex-block-wrapper {
+    body:not(.print) #body .narrow .flex-block-wrapper {
         min-width:100%;
         width: 100%;
         max-width: 100%;
     }
 }
+
+
+
 
