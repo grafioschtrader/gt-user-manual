@@ -47,6 +47,10 @@ h3 {
     font-weight: 400 !important;
 }
 
+h4 {
+    font-size: 1.5rem;
+    font-weight: 400 !important;
+}
 
 
 #body .flex-block-wrapper {
@@ -111,6 +115,7 @@ a:hover {
 }
 #sidebar {
     background-color: var(--MENU-SECTIONS-BG-color);
+    font-size: .9rem;
 }
 #sidebar #header-wrapper {
     background: var(--MENU-HEADER-BG-color);
@@ -140,6 +145,17 @@ a:hover {
     background: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color);
     color: var(--MENU-SECTION-ACTIVE-CATEGORY-color) !important;
 }
+
+#sidebar ul.collapsible-menu.enlarge > li > label {
+    font-size: 0.9rem;
+    line-height: 1.8rem;
+}
+
+#sidebar ul.enlarge > li > a {
+    font-size: 0.9rem;
+    line-height: 1.8rem;
+}
+
 
 #sidebar hr {
     border-color: var(--MENU-SECTION-HR-color);
