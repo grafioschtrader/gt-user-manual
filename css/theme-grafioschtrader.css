@@ -52,6 +52,10 @@ h4 {
     font-weight: 400 !important;
 }
 
+h5 {
+    font-size: 1.3rem;
+    font-weight: 400 !important;
+}
 
 #body .flex-block-wrapper {
     max-width: none;
