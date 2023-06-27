@@ -34,6 +34,10 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     border-color: none;
     box-shadow: none;
 }
+h1 {
+    font-size: 2.5rem;
+    text-transform: unset;
+}
 
 h2, h3, h4, h5, h6 {
     color: var(--MAIN-TITLES-TEXT-color) !important;
