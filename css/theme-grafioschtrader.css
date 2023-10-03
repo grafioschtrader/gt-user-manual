@@ -25,10 +25,7 @@
 
 }
 
-body {
-    color: var(--MAIN-TEXT-color) !important;
-    font-size: 1rem;
-}
+
 
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
     border-color: none;
@@ -205,19 +202,6 @@ g.classGroup text {
 }
 
 
-pre {
-    padding: 1rem;
-    margin: 0rem 0;
-    margin-top: 0rem;
-    margin-right: 0px;
-    margin-bottom: 0rem;
-    margin-left: 0px;
-    background: #282c34;
-    border: 0;
-    border-radius: 2px;
-    line-height: 1.15;
-}
-
 .searchbox {
   margin-top: 0.2rem;
 }
@@ -244,6 +228,13 @@ body:not(.print) #body-inner.narrow {
     }
 }
 
+
+
+
+#R-body .flex-block-wrapper {
+   width: 100% !important;
+   max-width: 100%;
+}
 
 
 
