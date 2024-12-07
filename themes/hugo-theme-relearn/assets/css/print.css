@@ -1,0 +1,2 @@
+/* prettier-ignore {{ $assetBusting := partialCached "assetbusting.gotmpl" . -}} */
+@import '{{ printf "format-print.css%s" $assetBusting }}';
