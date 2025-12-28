@@ -1,0 +1,22 @@
+---
+title: "Transaktionskosten"
+date: 2025-11-19T22:54:47+01:00
+draft: false
+weight: 50
+archetype: "default"
+---
+Die Auswertung **Transaktionskosten** bietet eine umfassende Analyse aller beim Wertpapierhandel angefallenen Kosten und Steuern. Sie steht ausschliesslich auf **Mandantenebene** zur Verfügung und analysiert alle Wertpapiertransaktionen über alle Portfolios und Depots hinweg. Alle Werte werden automatisch in die Hauptwährung umgerechnet, wobei historische Wechselkurse für eine präzise Kostenanalyse verwendet werden.
+## Aufbau der Auswertung
+Die Auswertung gliedert sich in zwei Ebenen. Die **Haupttabelle** zeigt eine Zusammenfassung pro Depot mit aggregierten Kostenwerten. Durch Aufklappen einer Zeile werden die einzelnen Transaktionen sichtbar, die zu diesen Kosten geführt haben. Diese hierarchische Struktur ermöglicht sowohl einen schnellen Überblick als auch detaillierte Analysen auf Transaktionsebene.
+Die Haupttabelle zeigt für jedes Depot folgende Spalten: **Name** des Depots, **Steuer (jede Art)** für die Summe aller gezahlten Steuern in Hauptwährung, **Bezahlte Transaktionen** für die Anzahl der kostenpflichtigen Transaktionen, **Durchschnitt Transaktionskosten** für die durchschnittlichen Kosten pro Transaktion und **Transaktionskosten** für die Gesamtsumme aller Ordergebühren ohne Steuern. Die Fusszeile zeigt die Gesamtsummen über alle Depots hinweg.
+## Detailansicht der Transaktionen
+In der Detailansicht werden alle einzelnen Transaktionen eines Depots mit ihren jeweiligen Kosten angezeigt. Die Spalten umfassen **Datum** und **Name** des Wertpapiers, **Handelsplatz** an dem das Wertpapier gehandelt wurde, **Transaktionstyp** für die Art der Transaktion, **Währung Konto** und **Währung Wertpapier** für die verwendeten Währungen, **Transaktionskosten** in der Originalwährung, **Steuer (jede Art)** in Hauptwährung, **Nettopreis** als Transaktionsvolumen in Hauptwährung, **Wechselkurs** für die Währungsumrechnung und **Transaktionskosten** in Hauptwährung. Die Detailtabelle verwendet eine Paginierung und zeigt standardmässig 20 Transaktionen pro Seite.
+## Funktionen
+Die Haupttabelle kann nach allen Spalten sortiert werden, um beispielsweise die kostenintensivsten Depots zu identifizieren. Die Sortierung nach durchschnittlichen Transaktionskosten zeigt, welche Depots im Verhältnis zur Transaktionsgrösse am günstigsten sind. In der Detailansicht können Transaktionen chronologisch oder nach Kostenhöhe sortiert werden.
+Die Währungsumrechnung erfolgt automatisch in die Hauptwährung des Mandanten. Das System verwendet dabei historische Wechselkurse zum jeweiligen Transaktionszeitpunkt. In der Detailansicht wird sowohl der Originalbetrag als auch der verwendete Wechselkurs angezeigt, sodass die Konvertierung jederzeit überprüft werden kann.
+### Transaktionen bearbeiten und löschen
+In der Detailansicht können einzelne Transaktionen über das **Kontextmenü** oder das Menü **Bearbeiten** bearbeitet oder gelöscht werden. Dies ist nützlich wenn Transaktionskosten nachträglich korrigiert werden müssen. Die verfügbaren Optionen entsprechen denen in der Auswertung [Transaktionen](../transactionlist/). Nach jeder Änderung wird der Bericht automatisch neu geladen um die aktuellen Werte anzuzeigen.
+## Diagramm-Darstellung
+Über das Menü **Ansicht** und die Option **Zeige Diagramm** wird ein Streudiagramm im Zusatzbereich angezeigt. Jeder Datenpunkt repräsentiert eine einzelne Transaktion. Die X-Achse zeigt den Nettopreis der Transaktion in Hauptwährung, die Y-Achse die angefallenen Transaktionskosten. Jedes Depot wird als separate Datenserie mit eigener Farbe dargestellt. Die Serien sind standardmässig ausgeblendet und können durch Klicken auf die Legende aktiviert werden. Wenn Sie mit der Maus über das Diagramm fahren, werden Ihnen detaillierte Informationen zu den jeweiligen Datenpunkten angezeigt. Durch Klicken auf einen Datenpunkt wird die entsprechende Zeile in der Detailtabelle automatisch selektiert.
+## Filterkriterien
+Das System wendet automatisch Filterkriterien an um den Bericht auf relevante Transaktionen zu fokussieren. Nur Transaktionen mit tatsächlichen Kosten werden berücksichtigt. Transaktionen bei denen das Feld Transaktionskosten null oder leer ist, werden nicht aufgenommen. Geldmarkt-Direktanlagen werden ausgeschlossen, da diese Anlageklasse typischerweise keine traditionellen Maklergebühren verursacht. Alle anderen Wertpapiertransaktionen werden erfasst, unabhängig von der Anlageklasse oder dem Transaktionstyp.
