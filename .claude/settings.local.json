@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:primeng.org)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh run:*)",
+      "Bash(gh api:*)",
+      "Bash(gh workflow run:*)"
+    ],
+    "additionalDirectories": [
+      "C:\\SoftwareProjekte\\Hugos\\grafioschtrader"
+    ]
+  }
+}
