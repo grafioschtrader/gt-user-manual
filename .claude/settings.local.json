@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:primeng.org)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh run:*)",
+      "Bash(gh api:*)",
+      "Bash(gh workflow run:*)",
+      "Bash(curl -s http://localhost:1314/gt-user-manual/de/basedata/securityaction/securityisinrename/ | grep -o \"Praxisbeispiele\" | head -5\ncurl -s http://localhost:1314/gt-user-manual/de/basedata/securityaction/securityisinrename/ | grep -o \"US74349Y8378\" | head -5\ncurl -s http://localhost:1314/gt-user-manual/en/basedata/securityaction/securityisinrename/ | grep -o \"Practical examples\" | head -5\ncurl -s http://localhost:1314/gt-user-manual/de/basedata/securityaction/securityisinrename/ | grep -o \"tip\" | head -5)",
+      "Bash(curl -s http://localhost:1314/gt-user-manual/de/basedata/securityaction/securityisinrename/ | grep -c \"Praxisbeispiele\"\ncurl -s http://localhost:1314/gt-user-manual/de/basedata/securityaction/securityisinrename/ | grep -c \"US74349Y8378\"\ncurl -s http://localhost:1314/gt-user-manual/en/basedata/securityaction/securityisinrename/ | grep -c \"Practical\")",
+      "Bash(curl -s http://localhost:1314/gt-user-manual/de/basedata/securityaction/securityisinrename/ | tail -100)",
+      "Bash(curl -s http://localhost:1314/gt-user-manual/de/basedata/securityaction/securityisinrename/ | grep -i \"praxis\\\\|Reverse Split\\\\|US74349\\\\|Frühzeitig\")",
+      "Bash(curl -s http://localhost:1314/gt-user-manual/en/basedata/securityaction/securityisinrename/ | grep -i \"practical\\\\|Reverse Split\\\\|US74349\\\\|Act early\")"
+    ],
+    "additionalDirectories": [
+      "C:\\SoftwareProjekte\\Hugos\\grafioschtrader"
+    ]
+  }
+}
