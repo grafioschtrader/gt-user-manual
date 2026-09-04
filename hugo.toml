@@ -1,0 +1,46 @@
+baseURL = "https://grafioschtrader.github.io/gt-user-manual/"
+languageCode = "de-de"
+title = "Grafioschtrader"
+theme = "hugo-theme-relearn"
+defaultContentLanguage = "de"
+defaultContentLanguageInSubdir= true
+
+[outputs]
+    home = [ 'html', 'rss', 'search']
+
+[params]
+   showVisitedLinks = false
+   disableLanguageSwitchingButton = false
+   disableLandingPageButton = true
+   themeVariant = "grafioschtrader"
+   disableNextPrev = true
+   mermaidZoom = true
+   alwaysopen = false
+   collapsibleMenu = true
+   customMermaidURL = 'https://unpkg.com/mermaid/dist/mermaid.min.js'
+
+
+[Languages]
+    [Languages.de]
+        title = "Bedienungsanleitung Grafioschtrader"
+        weight = 1
+        languageName = "Deutsch"
+
+    [Languages.en]
+        title = "User manual Grafioschtrader"
+        weight = 2
+        languageName = "English"
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokailight"
+    tabWidth = 4        
