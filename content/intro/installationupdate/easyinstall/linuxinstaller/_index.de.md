@@ -1,6 +1,6 @@
 ---
 title: "Linux-Installer"
-date: 2026-10-12T15:00:00+02:00
+date: 2026-11-02T15:00:00+01:00
 draft: false
 weight: 10
 archetype: "default"
@@ -43,6 +43,8 @@ graph LR
 
 ## Ablauf der Installation
 Der Installer prüft zuerst den Rechner und stellt dann nur die Fragen, die für diesen Rechner gelten. Bevor er etwas verändert, zeigt er den vollständigen Plan mit allen Paketen, Dateien und Diensten; erst nach der Bestätigung führt er ihn aus. Jeder Schritt wird in einem Journal festgehalten. Bricht die Installation ab, etwa durch einen Stromausfall oder einen fehlgeschlagenen Schritt, setzt ein erneuter Aufruf an derselben Stelle fort, mit denselben Antworten und Passwörtern.
+
+Statt das Skript herunterzuladen, können Sie den Installer auch als Debian-Paket `grafioschtrader-installer` aus dem signierten Paketarchiv von Grafioschtrader beziehen; wie das Paketarchiv eingetragen wird, beschreibt das Wiki. Der Installer heisst dann `gt-install` und verhält sich genau wie das heruntergeladene Skript. Das Paket liefert nur diesen Befehl: Seine Installation oder Aktualisierung startet nichts, und wenn Sie es entfernen, bleibt eine bestehende Installation von GT samt Datenbank und Einstellungen unverändert. GT selbst wird weiterhin mit `./gtupdate.sh` aktualisiert.
 
 {{< mermaid >}}
 graph TD

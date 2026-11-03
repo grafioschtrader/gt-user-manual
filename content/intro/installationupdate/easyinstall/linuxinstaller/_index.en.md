@@ -1,6 +1,6 @@
 ---
 title: "Linux installer"
-date: 2026-10-12T15:00:00+02:00
+date: 2026-11-02T15:00:00+01:00
 draft: false
 weight: 10
 archetype: "default"
@@ -43,6 +43,8 @@ graph LR
 
 ## Course of the installation
 The installer first examines the computer and then asks only the questions that apply to it. Before changing anything, it shows the complete plan with all packages, files and services; only after confirmation does it carry it out. Every step is recorded in a journal. If the installation is interrupted, for example by a power failure or a failed step, running it again continues at the same point, with the same answers and passwords.
+
+Instead of downloading the script, you can also obtain the installer as the Debian package `grafioschtrader-installer` from the signed package repository of Grafioschtrader; the wiki describes how to enroll the repository. The installer is then called `gt-install` and behaves exactly like the downloaded script. The package delivers only this command: installing or upgrading it starts nothing, and removing it leaves an existing GT installation, including its database and settings, unchanged. GT itself is still updated with `./gtupdate.sh`.
 
 {{< mermaid >}}
 graph TD
