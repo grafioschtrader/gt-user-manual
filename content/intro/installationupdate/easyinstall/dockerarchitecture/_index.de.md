@@ -1,12 +1,12 @@
 ---
 title: "Docker-Architektur"
-date: 2026-10-12T15:00:00+02:00
+date: 2026-11-02T12:00:00+01:00
 draft: false
 weight: 20
 aliases: ["/intro/installationupdate/dockerarchitecture/"]
 archetype: "default"
 ---
-Eine Docker-Installation von Grafioschtrader besteht im Normalbetrieb aus drei Containern. Ein vierter Container kommt nur hinzu, wenn DuckDNS die wechselnde öffentliche IP-Adresse des Docker-Hosts nachführen soll. Alle Container gehören zu demselben Docker-Compose-Projekt und kommunizieren über ein internes Netzwerk.
+Eine Docker-Installation von Grafioschtrader besteht im Normalbetrieb aus drei Containern. Ein vierter Container kommt nur hinzu, wenn DuckDNS die wechselnde öffentliche IP-Adresse des Docker-Hosts nachführen soll. Alle Container gehören zu demselben Docker-Compose-Projekt. Diese Seite beschreibt den Aufbau; wie Grafioschtrader mit Docker installiert, aktualisiert und entfernt wird, steht im Wiki unter [Grafioschtrader with Docker](https://github.com/grafioschtrader/grafioschtrader/wiki/Grafioschtrader-with-Docker).
 
 {{% callout style="info" title="Drei oder vier Container?" %}}
 Die Container `web`, `backend` und `mariadb` sind immer erforderlich. Der Container `duckdns` ist optional. Für das Frontend wird kein zusätzlicher Container benötigt: Die fertige Angular-Oberfläche ist bereits im `web`-Container enthalten.
@@ -23,7 +23,7 @@ Wer die Images aus dem Quellcode baut, sieht zusätzlich temporäre Maven- und N
 | `mariadb` | Speichert Benutzer, Portfolios, Transaktionen, Instrumente, Kurse und weitere Anwendungsdaten dauerhaft. | Nein, nur im internen Docker-Netzwerk. |
 | `duckdns` | Hält bei Bedarf eine DuckDNS-Subdomain auf der aktuellen öffentlichen IP-Adresse des Docker-Hosts. | Nein; dieser Container ist optional. |
 
-Das folgende Diagramm zeigt den normalen Datenfluss. Nur der `web`-Container veröffentlicht Ports des Docker-Hosts. Backend und Datenbank bleiben im internen Docker-Netzwerk.
+Das folgende Diagramm zeigt den normalen Datenfluss. Nur der `web`-Container veröffentlicht Ports des Docker-Hosts. Backend und Datenbank bleiben in den internen Docker-Netzwerken.
 
 {{< mermaid >}}
 graph LR
@@ -34,9 +34,9 @@ graph LR
     DNS["DuckDNS"]
     subgraph H["Docker-Host"]
         direction LR
-        W["web<br/>Caddy und Angular"] -->|"API, GTNet und WebSocket"| B["backend<br/>Grafioschtrader"]
-        B -->|"Datenbankzugriff"| D[("mariadb<br/>Datenbank")]
-        DD["duckdns<br/>(optional)"]
+        W["web<br/>Caddy und Angular"] -->|"API, GTNet und WebSocket<br/>(Netzwerk proxy)"| B["backend<br/>Grafioschtrader"]
+        B -->|"Datenbankzugriff<br/>(Netzwerk default)"| D[("mariadb<br/>Datenbank")]
+        DD["duckdns (optional)<br/>Netzwerk des Hosts"]
     end
     U <-->|"HTTP/HTTPS"| W
     B -->|"E-Mail"| M
@@ -45,7 +45,9 @@ graph LR
     DD -.->|"Aktualisiert die Domain"| DNS
 {{< /mermaid >}}
 
-Der Browser lädt die Oberfläche unter `/grafioschtrader/` vom `web`-Container. Anfragen an die Programmierschnittstellen, GTNet und WebSockets nimmt ebenfalls Caddy entgegen und leitet sie intern an das Backend auf Port 8080 weiter. Das Backend erreicht MariaDB unter ihrem Docker-Dienstnamen auf Port 3306. Diese beiden internen Ports werden nicht auf dem Docker-Host freigegeben.
+Der Browser lädt die Oberfläche unter `/grafioschtrader/` vom `web`-Container. Anfragen an die Programmierschnittstellen, GTNet und WebSockets nimmt ebenfalls Caddy entgegen und leitet sie intern an das Backend auf Port 8080 weiter. Das Backend erreicht MariaDB unter ihrem Docker-Dienstnamen auf Port 3306. Diese beiden internen Ports werden nicht auf dem Docker-Host freigegeben. Ist eine Domain eingerichtet, kann Caddy die Oberfläche zusätzlich unter einer bei der Installation angegebenen LAN-Adresse ausliefern, dort allerdings nur über unverschlüsseltes HTTP.
+
+Die Container sind auf zwei interne Netzwerke verteilt. Im Netzwerk `proxy` sind nur Caddy und das Backend; Caddy hat dort eine feste Adresse, und nur von dieser Adresse übernimmt das Backend die Adresse des Browsers. So werden fehlgeschlagene Anmeldungen für jede Absenderadresse getrennt gezählt. Im Netzwerk `default` erreicht das Backend die Datenbank; Caddy hat zu MariaDB keine Verbindung. Der optionale `duckdns`-Container nutzt das Netzwerk des Hosts, damit er dessen öffentliche Adresse ermitteln kann. Hat der Docker-Host IPv6, erhalten die Container bei der Installation oder beim nächsten Update ebenfalls IPv6. Damit erreicht das Backend auch Adressen, die nur über IPv6 erreichbar sind, beispielsweise die eigene Domain an einem DS-Lite-Anschluss oder andere GTNet-Instanzen.
 
 ## Wo befinden sich Konfiguration und Daten?
 
@@ -55,36 +57,21 @@ Container können bei einem Update ersetzt werden. Dauerhafte Daten liegen desha
 |---|---|
 | `docker/.env` | Enthält die Infrastrukturkonfiguration, beispielsweise Datenbankpasswörter, JWT-Geheimnis, Administrator-E-Mail, Mailserver, Domain, veröffentlichte Ports, Speichergrössen und gewünschte GT-Version. Diese Datei enthält Geheimnisse und muss zusammen mit der Datenbank gesichert werden. |
 | `docker/config/application-production.properties` | Enthält zusätzliche Einstellungen für das Verhalten von Grafioschtrader, beispielsweise Zeitpläne oder Protokollierungsstufen. Das Verzeichnis wird schreibgeschützt als `/config` in den Backend-Container eingebunden. |
-| `docker/docker-compose.yml`, Dockerfiles, `Caddyfile`, `install.sh` und `update.sh` | Beschreiben den Aufbau der Installation beziehungsweise führen Installation und Update aus. Sie enthalten keine Benutzer- oder Portfoliodaten. Ab Version 0.37.2 bringt das Update-Skript diese Dateien auf den Stand der neuen Version. |
+| `docker/config/gt-cacerts` | Nur vorhanden, wenn das Zertifikat eines Datenanbieters von Hand importiert wurde. Ist diese Liste vertrauenswürdiger Zertifikate in `.env` eingetragen, verwendet das Backend sie anstelle der im Image enthaltenen. |
+| `docker/docker-compose.yml`, Dockerfiles, `Caddyfile`, `mariadb-init` und die Skripte im Docker-Verzeichnis, darunter `install.sh`, `update.sh` und `uninstall.sh` | Beschreiben den Aufbau der Installation beziehungsweise führen Installation, Update und Entfernen aus. Sie enthalten keine Benutzer- oder Portfoliodaten. Ab Version 0.37.2 bringt das Update-Skript diese Dateien auf den Stand der neuen Version. |
+| `docker/docker-compose.override.yml` | Ergänzt die Datei `docker-compose.yml` um eigene Anpassungen. Installation und Update legen sie an, wenn der Host IPv6 hat, damit die Container IPv6 erhalten. Eine bestehende Datei verändert ein Update nie. |
 | Docker-Volume `db_data` | Enthält die eigentlichen MariaDB-Daten. Docker vergibt normalerweise den vollständigen Namen `grafioschtrader_db_data`. Das Volume bleibt beim Stoppen oder Ersetzen der Container erhalten. |
 | Docker-Volumes `caddy_data` und `caddy_config` | Enthalten die von Caddy verwalteten Zertifikate und Laufzeitdaten. Auch diese Volumes bleiben bei einem Containerwechsel erhalten. |
 | `docker/gt-backup-…`, `docker/gt-env-….bak` und `docker/gt-config-….bak` | Werden vom Update-Skript als Datenbank- und Konfigurationssicherungen angelegt. Manuell erzeugte Datenbanksicherungen können ebenfalls im Docker-Verzeichnis abgelegt werden. |
+| `docker/.env.backup.…` | Sicherung der bisherigen `.env`, wenn das Installationsskript erneut ausgeführt wurde und die Konfiguration geändert hat. |
 | `docker/gt-deployment-….tar.gz` und `docker/.gt-deployment.sha256` | Das Archiv enthält die Installationsdateien, die das Update-Skript ersetzt hat, im Zustand vor dem Update. Die zweite Datei hält fest, welche Fassung jeder Installationsdatei zuletzt ausgeliefert wurde; daran erkennt das nächste Update eigene Änderungen. Sie sollte nicht bearbeitet werden. |
 | Container-Images | Enthalten das Grafioschtrader-Backend beziehungsweise Caddy mit der fertig gebauten Angular-Oberfläche. Sie enthalten keine dauerhaften Benutzer- oder Portfoliodaten und werden bei einem Update ausgetauscht. |
 
-Der physische Speicherort eines benannten Volumes hängt von Docker Engine und dem Betriebssystem ab. Die Daten sollten nicht direkt in diesem internen Verzeichnis bearbeitet werden. Für Sicherung und Wiederherstellung werden die im Docker-Verzeichnis beschriebenen Docker-Compose-Befehle verwendet.
+Der physische Speicherort eines benannten Volumes hängt von Docker Engine und dem Betriebssystem ab. Die Daten sollten nicht direkt in diesem internen Verzeichnis bearbeitet werden. Für Sicherung und Wiederherstellung werden die Docker-Compose-Befehle aus dem Abschnitt «Backup and restore» im [Docker-README](https://github.com/grafioschtrader/grafioschtrader/tree/master/docker#backup-and-restore) verwendet.
 
 ## Ressourcen auf Raspberry Pi und anderen Kleincomputern
 
-Die Anleitung für die [klassische Installation auf einem Raspberry Pi 4 oder 5](https://github.com/grafioschtrader/grafioschtrader/wiki/Installation-on-Raspberry-Pi-4-or-5) enthält Empfehlungen für Java, MariaDB, Auslagerungsspeicher und Datenträger. Diese Empfehlungen gelten grundsätzlich auch für Docker, werden dort aber an anderen Stellen konfiguriert.
-
-Das Installationsskript erkennt den verfügbaren Arbeitsspeicher einmalig und schreibt passende Ausgangswerte in `.env`:
-
-| Arbeitsspeicher des Hosts | Java-Heap des Backends (`JAVA_OPTS`) | MariaDB-Puffer (`DB_INNODB_BUFFER_POOL_SIZE`) |
-|---|---|---|
-| Etwa 2 GB | `-Xms128m -Xmx896m` | `384M` |
-| Etwa 4 GB | `-Xms256m -Xmx1792m` | `1G` |
-| 8 GB oder mehr | `-Xms512m -Xmx2048m` | `2G` |
-
-Wenn Grafioschtrader den Host mit anderen Anwendungen teilt oder der Arbeitsspeicher geändert wurde, können diese Werte in `.env` angepasst werden. Danach werden die betroffenen Container neu erstellt:
-
-```bash
-docker compose up -d --force-recreate mariadb backend
-```
-
-Die Datei `/etc/mysql/my.cnf` des Docker-Hosts hat keinen Einfluss auf den MariaDB-Container. Zusätzliche MariaDB-Einstellungen werden über eine eigene Konfigurationsdatei in den Container eingebunden. Ein vollständiges Beispiel sowie Hinweise zu speicherintensiven Einstellungen enthält der Abschnitt «Memory and storage on Raspberry Pi and SBC hosts» im [Docker-README](https://github.com/grafioschtrader/grafioschtrader/tree/master/docker#memory-and-storage-on-raspberry-pi-and-sbc-hosts). Die Grösse des InnoDB-Puffers wird weiterhin über `DB_INNODB_BUFFER_POOL_SIZE` in `.env` festgelegt.
-
-Auslagerungsspeicher wird auf dem Docker-Host konfiguriert. Er kann beim lokalen Bau der Images auf einem Gerät mit wenig Arbeitsspeicher helfen; für den normalen Betrieb sind die veröffentlichten Images vorzuziehen. Das Datenbank-Volume `db_data` liegt im Datenverzeichnis von Docker. Soll die Datenbank auf einer SSD oder NVMe liegen, muss deshalb der Docker-Speicherort beziehungsweise dieses Volume dorthin gelegt werden. Bei einer bestehenden Installation ist davor eine geprüfte Datenbanksicherung erforderlich.
+Das Installationsskript erkennt den Arbeitsspeicher des Hosts einmalig und legt in `.env` passende Werte für den Java-Speicher des Backends und den Datenbankpuffer von MariaDB fest. Die Datei `/etc/mysql/my.cnf` des Docker-Hosts hat keinen Einfluss auf den MariaDB-Container, und das Datenbank-Volume liegt im Datenverzeichnis von Docker. Wie diese Werte angepasst, weitere MariaDB-Einstellungen eingebunden oder die Datenbank auf eine SSD gelegt werden, beschreibt der Abschnitt «Memory and storage on Raspberry Pi and SBC hosts» im [Docker-README](https://github.com/grafioschtrader/grafioschtrader/tree/master/docker#memory-and-storage-on-raspberry-pi-and-sbc-hosts).
 
 ## Start und Update
 
@@ -110,13 +97,7 @@ graph TD
 Hält das Update an, nennt es die betroffenen Dateien. Eigene Einstellungen gehören möglichst in `.env` oder in das Verzeichnis `config`, denn diese beiden fasst ein Update nie an. Nachdem die Anpassung dorthin verschoben wurde, wird das Update mit der Option `--replace-modified` wiederholt; die genannten Dateien werden dann durch die neue Fassung ersetzt. Vor jedem Ersetzen legt das Skript eine Sicherung `gt-deployment-….tar.gz` mit dem bisherigen Stand an, sodass keine Anpassung verloren geht. Mit der Option `--skip-files` bleiben alle Installationsdateien unverändert, und es werden nur die Images gewechselt.
 
 {{% callout style="warning" title="Einmaliger Schritt beim Update von Version 0.37.1 oder älter" %}}
-Das Update-Skript dieser Versionen aktualisiert sich noch nicht selbst. Vor dem Update auf 0.37.2 wird deshalb einmalig das neue Update-Skript geholt und danach wie gewohnt aktualisiert. Die Befehle werden im Docker-Verzeichnis ausgeführt:
-
-```bash
-git -C .. fetch --depth 1 origin tag V0.37.2
-git -C .. checkout V0.37.2 -- docker/update.sh
-./update.sh 0.37.2
-```
+Das Update-Skript dieser Versionen aktualisiert sich noch nicht selbst. Vor dem ersten Update wird deshalb einmalig das neue Update-Skript von Hand geholt; danach wird wie gewohnt aktualisiert. Die Befehle stehen im Abschnitt «Update to a new release» des [Docker-README](https://github.com/grafioschtrader/grafioschtrader/tree/master/docker#update-to-a-new-release).
 {{% /callout %}}
 
-Die Installations-, Update-, Sicherungs- und Diagnosebefehle sind im [Docker-Verzeichnis des Grafioschtrader-Projekts](https://github.com/grafioschtrader/grafioschtrader/tree/master/docker) beschrieben.
+Die Befehle für Installation, Update und Entfernen beschreibt das Wiki unter [Grafioschtrader with Docker](https://github.com/grafioschtrader/grafioschtrader/wiki/Grafioschtrader-with-Docker). Alle weiteren Einstellungen, Sicherung und Störungsbehebung sind im [Docker-README](https://github.com/grafioschtrader/grafioschtrader/tree/master/docker) beschrieben.

@@ -1,11 +1,11 @@
 ---
 title: "Update Grafioschtrader"
-date: 2026-09-26T12:00:00+02:00
+date: 2026-11-02T12:00:00+01:00
 draft: false
 weight: 70
 archetype: "default"
 ---
-Aufgrund der Architektur von GT ist die Installation zeitlich etwas aufwändig. Dafür ist das Einspielen von neuen Versionen sehr einfach. Dabei werden die bestehenden Daten automatisch in die neue Version migriert. Weitere Informationen werden unter "[Updating GT](https://github.com/grafioschtrader/grafioschtrader/wiki/Updating-GT)" gefunden.
+Aufgrund der Architektur von GT ist die Installation zeitlich etwas aufwändig. Dafür ist das Einspielen von neuen Versionen sehr einfach. Dabei werden die bestehenden Daten automatisch in die neue Version migriert. Weitere Informationen werden unter "[Updating GT](https://github.com/grafioschtrader/grafioschtrader/wiki/Updating-GT)" gefunden. Eine Installation mit Docker wird mit dem Skript `update.sh` im Docker-Verzeichnis aktualisiert, siehe Abschnitt «Update» unter [Grafioschtrader with Docker](https://github.com/grafioschtrader/grafioschtrader/wiki/Grafioschtrader-with-Docker#update).
 Durchführung und Anmerkungen zum Update
 - Wie mit einen Shell-Script GT einen Update erhält
 - Wie es GT mit der Versionierung hält

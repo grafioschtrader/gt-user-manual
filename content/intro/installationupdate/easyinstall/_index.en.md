@@ -1,6 +1,6 @@
 ---
 title: "Easy installation"
-date: 2026-10-12T15:00:00+02:00
+date: 2026-11-02T12:00:00+01:00
 draft: false
 weight: 56
 archetype: "default"
@@ -19,7 +19,7 @@ Without a domain, GT is only reachable in the local network over HTTP. Access fr
 | Web server | nginx or Apache; an existing HTTPS site can take in GT | Caddy in the `web` container |
 | TLS certificate | certbot, or an existing certificate, or an upstream proxy | Caddy obtains and renews it itself |
 | DuckDNS | own systemd timer; an existing updater is recognised | own container, on request |
-| Local network | always additionally through the LAN address over HTTP | with a domain only through the domain |
+| Local network | always additionally through the LAN address over HTTP | with a domain additionally through the LAN address over HTTP, if entered during installation |
 | Other services on the computer | an existing MariaDB, websites, Java and Node.js versions and occupied ports are recognised and stay unchanged | GT runs separately in containers; only ports 80 and 443 are occupied |
 | Update | `gtupdate.sh` as user `grafioschtrader` | `update.sh` in the Docker directory |
 | Uninstall | `gt-install.sh --uninstall` | `uninstall.sh` |
