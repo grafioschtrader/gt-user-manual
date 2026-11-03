@@ -1,6 +1,6 @@
 ---
 title: "Introduction"
-date: 2026-10-31T15:00:00+01:00
+date: 2026-11-02T15:00:00+01:00
 draft: false
 weight: 1
 archetype: "default"
@@ -47,5 +47,5 @@ GT is definitely not a jack of all trades:
 + For investors from Switzerland, Germany or the USA who require a **security number**, **securities identification number (WKN)** or **CUSIP number**. GT uses the International Securities Identification Number **(ISIN)** and the ticker/symbols, which are not always unique.
 
 {{% callout info %}}
-The information in this help refers to **GT** version **0.39.2**.
+The information in this help refers to **GT** version **0.39.2.1**.
 {{% /callout %}}

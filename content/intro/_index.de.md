@@ -1,6 +1,6 @@
 ---
 title: "Einführung"
-date: 2026-10-31T15:00:00+01:00
+date: 2026-11-02T15:00:00+01:00
 draft: false
 weight: 1
 archetype: "default"
@@ -47,5 +47,5 @@ GT ist definitiv keine Eierlegende Wollmilchsau:
 + Für Anleger aus der Schweiz, Deutschland bzw. USA die eine **Valoren-Nr.**, **Wertpapierkennnummer (WKN)** bzw. **CUSIP-Nummer** benötigen. GT benutzt die Internationale Wertpapierkennnummer **ISIN** und die nicht immer eindeutigen Ticker/Symbole.
 
 {{% callout info %}}
-Die Informationen dieser Hilfe bezieht sich auf die **GT** Version **0.39.2**.
+Die Informationen dieser Hilfe bezieht sich auf die **GT** Version **0.39.2.1**.
 {{% /callout %}}
