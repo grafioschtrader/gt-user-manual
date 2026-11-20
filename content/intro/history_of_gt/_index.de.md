@@ -1,0 +1,70 @@
+---
+title: "Geschichte von GT"
+date: 2026-11-15T12:00:00+01:00
+draft: false
+weight: 2
+archetype: "default"
+---
+Grafioschtrader (GT) entstand 2016 und wurde im März 2021 auf GitHub öffentlich zugänglich. 2026 blickt das Projekt damit auf zehn Jahre Entwicklung zurück. Diese Seite zeigt eine Auswahl der wichtigsten Schritte: neue Möglichkeiten für Anleger ebenso wie grössere Umbauten, die vor allem hinter der Benutzeroberfläche stattfanden.
+
+## Die Anfänge vor GitHub
+2016 begann ich GT als Desktopapplikation mit JavaFX. Für das Backend setzte ich bereits damals auf Spring Boot. Webapplikationen begeisterten mich zunächst wenig, und mit JavaScript konnte ich mich nicht anfreunden. Mit der Weiterentwicklung der Single-Page-Frameworks änderte sich das: Angular gefiel mir auf Anhieb, und mit PrimeNG standen passende Oberflächenkomponenten zur Verfügung. Damit konnte ich ähnlich schnell entwickeln wie mit JavaFX. Dazu kam die grosse Auswahl an Bibliotheken im JavaScript-Umfeld, insbesondere für Charts.
+
+Anfang 2017 stellte ich die Anwendung deshalb auf Angular und PrimeNG um. Das Spring-Boot-Backend blieb die Grundlage. Die heutige Webapplikation geht auf diesen Wechsel zurück.
+
+Zunächst war GT für einen einzelnen Mandanten ausgelegt. Weil die Installation anspruchsvoll war, wollte ich die Nutzung auch Anlegern ermöglichen, die keine eigene Instanz installieren und betreiben möchten. Daraus entstand die Mandantenfähigkeit: Mehrere voneinander getrennte Anleger können dieselbe Installation nutzen. Dieser Schritt machte das Projekt deutlich anspruchsvoller und erhöhte den Entwicklungsaufwand um ein Mehrfaches. Ein genauer Zeitpunkt dieser Einführung ist für die Zeit vor GitHub nicht festgehalten.
+
+## Die wichtigsten Stationen
+Die Zeitlinie verdichtet die Entwicklung auf wenige Stationen. Die Abstände sind schematisch und entsprechen nicht der verstrichenen Zeit. Die Tabelle darunter erläutert weitere Schritte und ihre zeitliche Einordnung.
+
+{{< mermaid >}}
+---
+config:
+  timeline:
+    width: 100
+    padding: 10
+    taskMargin: 10
+  themeVariables:
+    fontSize: 20px
+---
+timeline
+    2016 : JavaFX und Spring Boot
+    Anfang 2017 : Wechsel zur Webapplikation
+    März 2021 : Öffentlich auf GitHub
+    2024 : Benutzerdefinierte Zusatzfelder
+    2025–2026 : Wiederverwendbare Bibliotheken
+    2026 : GTNet, Steuerdaten und Docker
+    Aug.–Nov. 2026 : Angular 22, Zoneless und Signals
+{{< /mermaid >}}
+
+## Ausgewählte Entwicklungen im Detail
+Die Zeitangaben nennen Veröffentlichungen oder zusammenhängende Arbeitsphasen. Ein Refactoring ist ein Umbau der inneren Struktur; sein Nutzen liegt häufig in besserer Wartbarkeit und Wiederverwendung. Gerade die Bibliotheken und GTNet wurden über mehrere Releases hinweg weiterentwickelt. Ein gelber Hintergrund in der Spalte «Zeitraum / Version» kennzeichnet Refactorings ohne zusätzliche Benutzerfunktionen.
+
+| Zeitraum / Version | Schwerpunkt | Entwicklung und Bedeutung | Belege |
+|---|---|---|---|
+| 2016 | Projektbeginn | Eine Desktopapplikation mit JavaFX und einem Spring-Boot-Backend bildet den Ausgangspunkt von GT. | Rückblick des Entwicklers. |
+| Anfang 2017 | Wechsel ins Web | Angular und PrimeNG ersetzen die JavaFX-Oberfläche. Die Entwicklungsgeschwindigkeit und die Auswahl an Chartbibliotheken geben den Ausschlag für den Wechsel. | Rückblick des Entwicklers. |
+| Vor März 2021, Zeitpunkt nicht genauer belegt | Mandantenfähigkeit | Aus der Anwendung für einen einzelnen Mandanten wird eine gemeinsam betreibbare Installation mit getrennten Anlegerdaten. Damit kann GT auch genutzt werden, ohne es selbst installieren zu müssen. | Rückblick des Entwicklers. |
+| 5. März 2021 | Öffentliche Entwicklung | Der erste GitHub-Commit macht die bereits bestehende Anwendung öffentlich nachvollziehbar. Die Geschichte auf GitHub beginnt somit mehrere Jahre nach dem eigentlichen Projektstart. | [Erster Commit](https://github.com/grafioschtrader/grafioschtrader/commit/a1c45336ab). |
+| Mai–Juni 2021, 0.14–0.18 | Transaktionsimport und Analyse | Importvorlagen werden austauschbar, der CSV-/PDF-Import wird verbessert. Hinzu kommen Grundfunktionen der Korrelationsmatrix und die Aktualisierung von Dividendendaten. | [Statische Release-Texte in 0.14](https://github.com/grafioschtrader/grafioschtrader/blob/V0.14.0/frontend/src/assets/i18n/de.json), [0.18](https://github.com/grafioschtrader/grafioschtrader/blob/V0.18.0/frontend/src/assets/i18n/de.json). |
+| November–Dezember 2021, 0.21–0.22 | Korrelation und Statistik | Die rollende Korrelation zeigt, wie sich der Zusammenhang zwischen Instrumenten im Zeitverlauf verändert. Statistische Auswertungen erweitern die Korrelationsansicht. | [Statische Release-Texte](https://github.com/grafioschtrader/grafioschtrader/blob/V0.22.0/frontend/src/assets/i18n/de.json). |
+| April–Oktober 2022, 0.25–0.28 | Instrumente und Handelsplätze | Inverse und gehebelte ETF und ETN werden besser unterstützt. Handelsplätze erhalten mit dem Marktidentifikationscode MIC eine eindeutige Kennung. | [Release-Texte 0.25](https://github.com/grafioschtrader/grafioschtrader/blob/V0.26.0/frontend/src/assets/i18n/de.json), [Release 0.28](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.28.0). |
+| April 2023, 0.30 | Benachrichtigungen und Datenkontrolle | Benutzer können Kategorien interner Nachrichten an ihre E-Mail-Adresse weiterleiten lassen. Eine tägliche Prüfung weist auf bestimmte Unstimmigkeiten in den Portfolios hin, etwa auf über die Laufzeit hinaus gehaltene Instrumente. | [Nachrichtenweiterleitung](https://github.com/grafioschtrader/grafioschtrader/issues/62), [Konsistenzprüfung](https://github.com/grafioschtrader/grafioschtrader/issues/63). |
+| Juli–August 2024, 0.32–0.33 | Benutzerdefinierte Zusatzfelder | Eigene Zusatzfelder für Instrumente und anschliessend globale Zusatzfelder machen GT über die fest vorgegebenen Stammdaten hinaus erweiterbar. | [Release 0.32](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.32.0), [Release-Note-Migration](https://github.com/grafioschtrader/grafioschtrader/blob/V0.33.8/backend/grafioschtrader-server/src/main/resources/db/migration/V0_33_8__New_Release_Notes_in_database.sql). |
+| {{< refactoring-period >}}Ab Januar 2025, fortgeführt 2026{{< /refactoring-period >}} | Wiederverwendbare Basisbibliotheken | Allgemeine Funktionen wie Benutzer, Rollen, Mandanten, Nachrichten und Tabellen werden aus dem Finanzteil herausgelöst. Im Frontend entsteht der Bereich `lib`, im Backend entstehen `grafiosch-base` und `grafiosch-server-base`. Die Trennung ermöglicht ihre Nutzung in anderen Anwendungen und wird parallel zu den fachlichen Erweiterungen fortgeführt. | [Backend-Refactoring #142](https://github.com/grafioschtrader/grafioschtrader/issues/142), [Frontend-Refactoring #143](https://github.com/grafioschtrader/grafioschtrader/issues/143), [erster Commit mit den Basismodulen](https://github.com/grafioschtrader/grafioschtrader/commit/9d14fe8665). |
+| Januar–September 2026, Ausbau über mehrere Releases | GTNet und gemeinsame Netzwerkinfrastruktur | GT-Instanzen können Intraday- und historische Kurse sowie Instrumentkonfigurationen austauschen. Wertpapiere lassen sich bei anderen Instanzen suchen und gesammelt übernehmen. Die allgemeine Netzwerkinfrastruktur wird dabei ebenfalls in die Basisbibliotheken verlagert. Die ursprünglichen Daten stammen weiterhin von externen Anbietern. | [Intraday-Kurse #82](https://github.com/grafioschtrader/grafioschtrader/issues/82), [historische Kurse #172](https://github.com/grafioschtrader/grafioschtrader/issues/172), [Netzwerk-Refactoring #174](https://github.com/grafioschtrader/grafioschtrader/issues/174), [Wertpapierimport #176](https://github.com/grafioschtrader/grafioschtrader/issues/176). |
+| März 2026, 0.34 | Automatisierung und konfigurierbare Regeln | Daueraufträge bilden wiederkehrende Buchungen ab. Generische Kurskonnektoren und Gebührenmodelle machen Datenbeschaffung und Kostenberechnung flexibler. Hinzu kommen Sollzinsen auf Geldkonten und Kursaktualisierungen nach Börsenschluss. | Release Notes in GT; [Release 0.34](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.34.0), [börsenschlussbasierte Aktualisierung #13](https://github.com/grafioschtrader/grafioschtrader/issues/13). |
+| März 2026, 0.35 | Depotwechsel und Schweizer Steuerdaten | ISIN-Wechsel und Wertpapiertransfers zwischen Depots lassen sich nachbilden. Die Integration der ICTax-Kursliste ergänzt die Schweizer Steuerdaten und den Dividenden-/Zinsbericht. | Release Notes in GT; [Milestone 0.35](https://github.com/grafioschtrader/grafioschtrader/milestone/35). |
+| Juni 2026, 0.36 | Portfolioberatung und Lesezugriff | Ein Portfolioberater kann mehrere Kundenmandanten verwalten und zwischen ihnen wechseln. Kunden oder weitere Betrachter können einen schreibgeschützten Zugang erhalten. Diese Erweiterung baut auf der früher eingeführten Mandantenfähigkeit auf. | Release Notes in GT; [Milestone 0.36](https://github.com/grafioschtrader/grafioschtrader/milestone/36). |
+| Juli–August 2026, ab 0.36.3 | Installation und Qualitätssicherung | Docker vereinfacht den Betrieb einer vollständigen Instanz auf einem Server oder Raspberry Pi. Eine durchgängige Testsuite verbindet Backend- und Browsertests. Eigene Testanwendungen prüfen die Basisbibliotheken auch unabhängig von GT. | [Release 0.36.3](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.36.3), [Release 0.36.5](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.36.5). |
+| Juli–August 2026, 0.36.3–0.36.3.1 | Kalender, Datenaustausch und gemeinsame Texte | Bearbeitbare Regelwerke ergänzen die indexbasierten Handelskalender. Eigene Transaktionsbelege und CSV-Exporte lassen sich wieder importieren. Sämtliche Oberflächentexte werden im Backend zusammengeführt; das stärkt auch die eigenständig nutzbaren Bibliotheken. | [Release 0.36.3](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.36.3), [Release 0.36.3.1](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.36.3.1). |
+| {{< refactoring-period >}}August 2026, 0.36.7.1–0.36.7.2{{< /refactoring-period >}} | Angular 22 und Optimus UI | Zuerst ersetzt Optimus UI die bisherige Komponentenbibliothek PrimeNG, anschliessend folgen Angular 22 und TypeScript 6. Dieser Plattformwechsel bereitet den weiteren Umbau des Frontends vor. | [Release 0.36.7.1](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.36.7.1), [Release 0.36.7.2](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.36.7.2). |
+| September 2026, 0.37 | Persönliches Dashboard | Eine konfigurierbare Startseite mit Karten bündelt unter anderem Gewinner und Verlierer, das Ergebnis der letzten Handelstage, Nachrichten und offene Anträge. | [Release 0.37](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.37.0). |
+| Oktober 2026, 0.37.3–0.38.1 | Berichte, Risiko und Überwachung | PDF-Berichte, zeit- und geldgewichtete Renditen, Drawdown und Volatilität erweitern die Auswertungen. Hinzu kommen Alarme, historische Simulationen, geschätzte Verkaufskosten und gespeicherte tägliche Vermögenswerte mit zusätzlichen Charts. | [Release 0.37.3](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.37.3), [Release 0.38.1](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.38.1). |
+| Oktober 2026, 0.38.2–0.39 | Instrumentensuche und KI-Anbindung | Datenanbieter helfen beim Ausfüllen neuer Wertpapiere. Zusatzfelder können regelbasiert, über Wikipedia oder mit Vorschlägen eines Sprachmodells gefüllt werden. Ein MCP-Zugang ermöglicht KI-Assistenten, freigegebene Portfoliodaten lesend auszuwerten. Fundamentale Aktienwerte erweitern die Watchlist-Indikatoren. | [Release 0.38.2](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.38.2), [0.38.3](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.38.3), [0.39](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.39.0). |
+| {{< refactoring-period >}}Oktober–November 2026, 0.39.2{{< /refactoring-period >}} | Zoneless, Signals und Signal Forms | Nach dem Versionsupgrade im August wird die Arbeitsweise des Frontends grundlegend modernisiert. GT und die Frontend-Bibliothek laufen ohne Zone.js; Signals und OnPush steuern die Aktualisierung der Ansichten. Strenge Typprüfungen und neue dynamische Signal Forms ergänzen den Umbau. | [Zoneless-Umbau #233](https://github.com/grafioschtrader/grafioschtrader/issues/233), [Modernisierung #288](https://github.com/grafioschtrader/grafioschtrader/issues/288), [Release 0.39.2](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.39.2). |
+| {{< mobile-period >}}Oktober–November 2026, 0.39.2{{< /mobile-period >}} | Mobile Webapplikation | Eine erste mobile Webapplikation bietet lesenden Zugriff auf Dashboard, Portfolioauswertungen und Watchlists in einer für kleine Bildschirme angepassten Oberfläche. | [Release 0.39.2](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.39.2). |
+| November 2026, 0.40 | Einstandswerte und realisierte Gewinne | Gleitender Durchschnitt, FIFO und LIFO erlauben unterschiedliche Zuordnungen von Verkäufen zu Käufen. Jahresauswertungen realisierter Gewinne und die Steuerhilfe für Deutschland ergänzen die Berichte. Zusatzfelder lassen sich mit anderen Benutzern teilen; die Watchlist erhält eine Marktkarte. | [Release 0.40](https://github.com/grafioschtrader/grafioschtrader/releases/tag/V0.40.0). |
+
+## Quellen und Einordnung
+Die Vorgeschichte bis zur Veröffentlichung auf GitHub beruht auf meinem Rückblick als Entwickler. Für die Zeit danach wurden die Git-Historie, ausgewählte GitHub-Releases und Issues, die früheren statischen Release-Texte sowie die in GT gespeicherten Release Notes herangezogen. Die Auswahl reicht bis Version 0.40.0 vom 14. November 2026. Kleine Fehlerkorrekturen, einzelne neue Konnektoren und reine Versionsupdates sind weitgehend ausgelassen; die verlinkten Quellen enthalten die Einzelheiten.
