@@ -1,0 +1,111 @@
+---
+title: "EOD as line chart"
+date: 2026-11-18T22:00:00+01:00
+draft: false
+weight: 30
+archetype: "default"
+---
+In GT, the **end-of-day prices** of an **instrument** can be displayed in the **additional area** as a **chart**. In addition to the classic **line chart**, **candlestick charts** and **OHLC charts** are also available, provided the corresponding price data is present. This allows the performance of the prices from a selectable date of an instrument to be read off. The functionality offered differs slightly with regard to the **security** including the **derived security** and the **currency pair**.
+
+{{% callout info %}} 
+The line graph is based on the historical price data plus the last intraday price if available. 
+{{% /callout %}}
+
+{{% callout info %}}
+Retrieving the price data for this chart counts toward the daily quota of different instruments, see [Daily quota for retrieving historical price data](../externaldata/historyquote/pricedata/).
+{{% /callout %}}
+
+{{% callout warning %}}
+### Price chart or performance chart
+As mentioned in the [glossary](../../glossar/), a distinction must be made between ETFs or funds **that distribute** or **reinvest** **dividends** and between **price** and **performance indices**. There is a similar difference between **shares** with or without **dividends**.
+
+GT offers a selectable currency for the problem of different currencies of instruments. Without further setting, the daily **closing prices** are used in the chart, which may or may not include the returns, depending on the instrument. Therefore, the user should always be aware of whether **distributing** or **accumulating** ETFs or price or performance indices are being compared in this chart.
+
+### GT and this problem
+With the **Include dividends** checkbox in the header, GT shows the securities as [total return](../../glossar/#total-return). The dividends are reinvested arithmetically on the ex-date, which makes a distributing and an accumulating instrument comparable. Nothing is converted for an index, choose its performance index instead. 
+{{% /callout %}}
+
+## Activating this view
+The **line chart** in the **additional area** can be activated from different views of the **main area**. In practice, it is probably mostly used by the watchlist functionality. However, there are also other views in GT with one instrument per table row, where the following functionality is offered via the context menu.
+- **End of day data as line graph**: Creates a **new line chart** with the selected **instrument**.
+- **Add as line graph**: The selected **instrument** is added to the **existing line chart**. This allows you to compare the performance of different instruments.
+- **Position chart**: Shows for a **security** how your **own position** develops, with result, value development, performance and drawdown, see [Position chart](../positionchart/). The same entry is in the context menu of the line chart when it shows exactly one security.
+
+## Chart types
+GT supports three different chart types for displaying price data. The selection of the **chart type** is only available when a **single instrument** is displayed and the required OHLC data (open, high, low, and close prices) is present.
+- **Line chart**: The classic chart type that displays closing prices as a continuous line. This type is always available and is used by default.
+- **Candlestick**: Shows a candle body for each trading day representing the range between open and close prices, as well as wicks for high and low prices. Rising prices are typically displayed in green, falling prices in red.
+- **OHLC**: Similar to the candlestick chart, but the price data is displayed as horizontal bars. The left bar marks the opening price, the right bar marks the closing price.
+
+When displaying **multiple instruments** simultaneously, the **line chart** is automatically used, as candlestick and OHLC charts are not suitable for comparing different instruments.
+
+## Transactions in the line chart
+When mapping transactions, a distinction is made between a **security** or **derived security** and a **currency pair**.
+
+- **Security and derived security**: **Transactions** such as **buy**, **sell** and **interest/dividend** are shown as dots of the same size in the line chart. When **Include dividends** is selected, the actual buy or sell price is converted like the price line, so that the dot stays on the line.
+- **Currency pair**: The diameter of the dot is a reflection of the total amount of the transaction. In addition, the transaction of the **reciprocal currency pair** is also shown. For example, the line chart of the EUR/USD currency pair also contains the transactions of the USD/EUR currency pair. The size of the dot is standardized as soon as the selection box **Percent** is marked and/or several instruments or currency pairs are displayed. Securities transactions with the currency pair involved are transformed accordingly into **buys** or **sells** of the currency in question.
+
+## Holdings
+For an **individual instrument**, the **position** can be viewed over the selected period. The scaling of the **Y-axis** of the **position** is shown on the **right-hand side**. On the left-hand side, as always, is the scaling of the data series of the rates with the price or the percentage. Of course, negative stocks can also be displayed. The stock display can be **switched on or off** in the **header** of the chart.
+
+## Functions
+In general, a [chart has a certain basic functionality](../../intro/userinterface/user_setting_ui_controls/) that is not described further here. In addition, this chart has an **interactive header** and a **context menu** for rudimentary technical analysis and for output as PDF.
+
+### Interactions in the header
+This chart offers additional interaction options in the **header**:
+- **Date from**: The price data is displayed from this date. Above the field there are several **buttons for different time periods** for quick adjustment. The buttons **5D**, **1M** and **3M** show the prices of the last five days, the last month and the last three months respectively, while **1Y**, **3Y**, **5Y** and **10Y** set the period to one, three, five and ten years back. If the calculated date falls on a weekend, the next trading day is used automatically. The **YTD** button sets the date to the start of the current year. The **SFT** button (tooltip "Since the first trade") sets the date to the **oldest own transaction** of the instrument, so that the entire price development since the first buy or sell becomes visible. This button is only active when the instrument actually has **transactions** and stays disabled for a pure watchlist instrument without transactions. The **reset icon** (arrow) to the left of the period buttons sets the date to the **oldest available price**, thereby displaying the entire available price history.
+- **Chart type**: Allows selection between line chart, candlestick chart, and OHLC chart. This option only appears when displaying a single instrument with available OHLC data.
+- **Percent**: As soon as two or more instruments are displayed as a line chart, it only makes sense to display the chart with absolute values in a few cases. This is why there is this checkbox, which is automatically selected if the "**Add as line graph**" function is executed for the first time. The system does not override the state of this checkbox set by the user. The percentage display of the different instruments from a certain date allows a better comparison of the exchange rate changes.
+- **Connect gaps**: If this checkbox is selected, the existing course data is connected with a line. If the checkbox is not selected, the possible gaps in missing price data are displayed. Missing price data is determined using the trading calendar of the corresponding instrument.
+- **Include dividends**: This checkbox appears as soon as the chart contains at least one security and acts on all securities of the chart. When it is selected, the chart shows the [total return](../../glossar/#total-return): the gross dividend is reinvested at the close of the ex-date, and all older prices become correspondingly smaller. The latest price stays unchanged, the price drop on the ex-date disappears. Open, high and low are converted like the close, the volume stays unchanged. The **technical indicators** are also calculated on the converted price line. **Currency pairs**, **indices** and **derived securities** are not converted. When a security has a distribution frequency but no dividend in its price history, the warning sign ⚠ appears behind its name in the legend, because its line then equals the pure price development.
+- **Currency**: GT supports instruments in different currencies. The currency must therefore be taken into account when comparing the performance of instruments. Based on the **client's currency**, any currency of the displayed instruments can be selected. The choice of currency has no effect on the line graph of the **currency pairs**.
+
+{{% callout note "Time-period buttons without sufficient price data" %}}
+With the exception of the **SFT** button, the time-period buttons are deliberately **not disabled**. If a period is selected that reaches further back than the available price data, the chart simply starts from the **oldest available price**. If the entire available period is already shown, the chart does not change, so pressing such a button may **appear to have no effect**, even though the largest possible period is already displayed.
+{{% /callout %}}
+
+{{% callout note "Currencies and non-existent currency pairs" %}} 
+Currency pairs are required for the **currency** function to work. If a required currency pair is not available to the system, it will be created by the system and the **historical exchange rate data** will be **downloaded** directly. This may delay the creation of the line chart by a few seconds. 
+{{% /callout %}}
+
+### Context menu for technical indicators
+GT supports various technical indicators that can be activated and deactivated via the context menu. The indicator parameters can be configured in a dialog.
+#### Moving Averages (SMA/EMA)
+The **simple moving average** (SMA) and the **exponential moving average** (EMA) are displayed directly on the price chart as overlays. By default, three periods can be configured.
+#### Relative Strength Index (RSI)
+The **RSI** is a momentum oscillator that measures the speed and magnitude of price changes. It oscillates between 0 and 100, with values above 70 typically indicating overbought conditions and values below 30 indicating oversold conditions. The RSI is displayed in a separate panel below the price chart and is only available when viewing a single instrument. By default, two periods can be configured.
+{{% callout info %}}
+GT will not be a tool for **technical analysis**, but some **technical indicators** will be implemented in the future.
+{{% /callout %}}
+### Drawing tools
+The line chart offers interactive drawing tools for manual chart analysis. Various shapes can be drawn via the toolbar above the chart: lines, open and closed paths, circles, and rectangles. An eraser tool allows the removal of individual drawn elements. In addition, three further buttons are available in the toolbar:
+- **Undo**: Reverts the last drawing change. Clicking multiple times allows stepping back through several changes.
+- **Redo**: Restores a previously undone drawing change.
+- **Delete all shapes**: Removes all drawn shapes at once. A confirmation dialog is displayed before deletion. This action can also be restored using the undo function.
+
+The drawn shapes are saved per user and instrument on the server. This means the drawings are preserved even after closing the browser and are available on all devices where the user logs in.
+
+### Chart as PDF
+The entry **Chart as PDF...** in the context menu, set apart from the technical indicators by a separator line, turns the displayed chart into a PDF document for printing, filing or passing on. The chart is output as it appears on the screen: with the selected period and section, the **holdings**, the indicators that are switched on and your own drawings. The chart can therefore be adjusted first, for example with or without **holdings**, and only then be output as PDF. Nothing changes on the screen. The entry is only available for a **single security**. It stays disabled when several instruments are compared and for a currency pair.
+
+In the dialog you choose the **paper format** (A4 or Letter), the **report language** and the **number and date format**. The check box **Table of the numbered transactions** determines whether a table follows the chart. Without this check box the document contains only the chart, and the dots of the transactions carry no numbers. With **Create PDF** the document is generated on the server and saved by the browser.
+
+At the top, the document names the security, the scope the transactions come from (all portfolios, one portfolio or one securities account) and the currency of the prices. Below that come the **ISIN** and the **ticker**, if the security has them, and the chart. It is embedded as a vector graphic: lines stay sharp at any magnification, and the labels can be selected and searched in the PDF. For printing, the chart has a white background, the range slider below the price line is omitted, and the dots of the transactions are not translucent.
+
+#### Numbered transactions
+Every dot of a transaction in the displayed section carries a number in the PDF. The numbers follow the chronological order of the bookings. The same number stands in the first column of the table **Transactions in the chart**, so every row can be matched to its dot in the chart. Transactions outside the displayed period get neither a number nor a row. The table shows the transactions of the scope for which the chart was opened: when called from a securities account, the transactions of that account; when called from a portfolio, those of the portfolio; otherwise all those of the client. These are the same transactions that appear as dots in the chart. If the rows do not fit on one page, the table continues on the next page with a repeated header.
+
+The table has the same columns as the transaction table of the instrument: **No.**, **Booking date**, **Transaction type**, **Quantity**, **Price**, **Amount in account currency**, **Gain** and **Gain %**.
+- **Quantity** and **Price** are the booked values. The dots in the chart, however, sit at the prices adjusted for stock splits. If the two differ, a footnote points this out.
+- **Gain** and **Gain %** appear on rows for which GT calculates a gain, above all on **Sell**. The gain is given in the currency of the security. Both columns stay empty for a purchase. How the gain of a sale is calculated depends on the [cost basis method]({{% relref "/reportportfolio/costbasismethod" %}}). If the purchases of the securities account do not cover a sale completely, the gain is marked with an asterisk, and a footnote explains that no gain is shown for the missing units.
+
+{{% callout note "Transactions close together" %}}
+If many transactions lie close together in time, their numbers in the chart may partly overlap. A shorter period in the chart helps, because fewer dots and therefore fewer numbers appear.
+{{% /callout %}}
+
+#### Sell hypothetical
+If the client still holds units of the security in the selected scope, the table ends with the row **Sell hypothetical**, set apart by a line and in bold type. It values the units still held at the latest price of the security and shows the not yet realized **Gain** and **Gain %**, as if the position were sold today. The row carries no number because there is no dot for it in the chart. It also appears when no transaction is visible in the displayed period. If **Estimate disposal costs** is set for the client, the [disposal costs]({{% ref "/reportportfolio#disposal-costs" %}}) are included in the amount and in the gain of this row. If a fee model, a tax model or a matching rule is missing for this, a note below the table says so.
+
+## End-of-day prices as line graph in practice
+Unfortunately only in German:
+{{< youtube qNaBNDIAnZ0 >}}
